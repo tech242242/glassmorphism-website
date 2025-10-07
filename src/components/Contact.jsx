@@ -19,6 +19,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-24 text-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-[#1e1e2f] via-[#111] to-[#0a0a1f] opacity-80"></div>
+
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -70,16 +71,24 @@ export default function Contact() {
             className="w-full p-4 rounded-lg bg-white/5 border border-white/20 outline-none text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400"
           />
 
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "0 0 25px #00f0ff" }}
-            whileTap={{ scale: 0.95 }}
-            type="submit"
-            className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 font-semibold text-lg shadow-lg hover:shadow-[0_0_25px_rgba(255,0,255,0.5)] transition-all"
-          >
-            {sent ? "Message Sent 💫" : "Send Message"}
-          </motion.button>
+          {/* ✅ Fixed button area */}
+          <div className="flex justify-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 250 }}
+              type="submit"
+              className="inline-block px-8 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 font-semibold text-lg shadow-lg hover:shadow-[0_0_25px_rgba(255,0,255,0.5)] transition-all"
+            >
+              {sent ? "Message Sent 💫" : "Send Message"}
+            </motion.button>
+          </div>
         </form>
       </motion.div>
+
+      {/* Decorative glow */}
+      <div className="absolute top-10 left-10 w-24 h-24 bg-pink-500/30 blur-3xl rounded-full animate-pulse"></div>
+      <div className="absolute bottom-10 right-10 w-32 h-32 bg-blue-500/30 blur-3xl rounded-full animate-ping"></div>
     </section>
   );
 }
