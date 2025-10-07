@@ -1,62 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #1e1b4b, #312e81, #1e1b4b);
-  color: white;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-
-/* Glassmorphism Utilities */
-.glass {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-}
-
-/* Gradient text animation */
-.text-gradient {
-  background: linear-gradient(45deg, #7B2FF7, #22D3EE, #EC4899);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3s ease infinite;
-}
-
-/* Hover glow */
-.glow-hover {
-  transition: all 0.3s ease;
-}
-.glow-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px #7B2FF7, 0 0 40px #22D3EE;
-}
-
-/* Floating icons or cards */
-.float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  @apply bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e] text-white font-[Poppins] overflow-x-hidden;
 }
