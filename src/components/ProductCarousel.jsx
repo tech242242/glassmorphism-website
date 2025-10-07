@@ -1,57 +1,63 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import "./ProductCarousel.css";
 
-const products = [
-  { name: "Product 1", color: "from-pink-500 to-blue-500" },
-  { name: "Product 2", color: "from-green-400 to-blue-400" },
-  { name: "Product 3", color: "from-yellow-400 to-red-400" },
-  { name: "Product 4", color: "from-purple-500 to-pink-500" },
-  { name: "Product 5", color: "from-cyan-400 to-teal-400" },
-  { name: "Product 6", color: "from-orange-500 to-yellow-400" },
+const images = [
+  "https://i.ibb.co/4w3C1mCH/0d77ebc9799d4a0a131af2949f17222d.jpg",
+  "https://i.ibb.co/v8yVMGN/996ced4d12483929c3fd8aa4a90be285.jpg",
+  "https://i.ibb.co/GQw6Xwwt/b875cadf4323f561b442d18af6be4985.jpg",
+  "https://i.ibb.co/vCbfDkKr/fa553ac9c5a7a559d902ff3319a4e313.jpg",
+  "https://i.ibb.co/4R3r0LBm/49611315729d7b19fd06d9c0d41980cd.jpg",
+  "https://i.ibb.co/XxcZG2Cf/257a0631e3051140356b697ff111f3fd.jpg",
+  "https://i.ibb.co/KcM8C8Dc/1eb1ed7004c702b0087d0216fecc6647.jpg",
+  "https://i.ibb.co/8D6nPr8W/00e1768d577f36ce3c1dc5adb0aaa460.jpg",
+  "https://i.ibb.co/KcM8C8Dc/1eb1ed7004c702b0087d0216fecc6647.jpg",
+  "https://i.ibb.co/4w3C1mCH/0d77ebc9799d4a0a131af2949f17222d.jpg",
+  "https://i.ibb.co/v8yVMGN/996ced4d12483929c3fd8aa4a90be285.jpg",
+  "https://i.ibb.co/GQw6Xwwt/b875cadf4323f561b442d18af6be4985.jpg",
+  "https://i.ibb.co/vCbfDkKr/fa553ac9c5a7a559d902ff3319a4e313.jpg",
+  "https://i.ibb.co/4R3r0LBm/49611315729d7b19fd06d9c0d41980cd.jpg",
+  "https://i.ibb.co/XxcZG2Cf/257a0631e3051140356b697ff111f3fd.jpg",
+  "https://i.ibb.co/KcM8C8Dc/1eb1ed7004c702b0087d0216fecc6647.jpg",
+  "https://i.ibb.co/8D6nPr8W/00e1768d577f36ce3c1dc5adb0aaa460.jpg",
 ];
 
 export default function ProductCarousel() {
   const [angle, setAngle] = useState(0);
-  const step = 360 / products.length;
+  const total = images.length;
+  const degPerImage = 360 / total;
+
+  const rotateLeft = () => {
+    setAngle((prev) => prev + degPerImage);
+  };
+
+  const rotateRight = () => {
+    setAngle((prev) => prev - degPerImage);
+  };
 
   return (
-    <section className="relative py-24 text-white flex flex-col items-center justify-center">
-      <h2 className="text-4xl font-bold mb-10 bg-gradient-to-r from-blue-400 to-pink-500 bg-clip-text text-transparent">
-        Our Products
-      </h2>
+    <div className="carousel-wrapper">
+      <h2 className="carousel-title">Our Products</h2>
 
-      <div className="relative w-96 h-96">
-        {products.map((product, index) => {
-          const rotation = index * step + angle;
-          const x = 120 * Math.cos((rotation * Math.PI) / 180);
-          const y = 120 * Math.sin((rotation * Math.PI) / 180);
-          return (
-            <motion.div
-              key={index}
-              animate={{ x, y, rotate: rotation }}
-              transition={{ duration: 0.6 }}
-              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 flex items-center justify-center rounded-full bg-gradient-to-br ${product.color} shadow-xl cursor-pointer`}
-            >
-              {product.name}
-            </motion.div>
-          );
-        })}
+      <div
+        className="carousel-container"
+        style={{ transform: `rotateY(${angle}deg)` }}
+      >
+        {images.map((img, i) => (
+          <span
+            key={i}
+            style={{
+              transform: `rotateY(${i * degPerImage}deg) translateZ(300px)`,
+            }}
+          >
+            <img src={img} alt={`Product ${i + 1}`} />
+          </span>
+        ))}
       </div>
 
-      <div className="flex gap-6 mt-10">
-        <button
-          onClick={() => setAngle(angle - step)}
-          className="px-6 py-3 bg-gradient-to-r from-blue-500 to-pink-500 rounded-full hover:scale-105 transition-all shadow-lg"
-        >
-          ⬅️ Left
-        </button>
-        <button
-          onClick={() => setAngle(angle + step)}
-          className="px-6 py-3 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full hover:scale-105 transition-all shadow-lg"
-        >
-          Right ➡️
-        </button>
+      <div className="buttons">
+        <button onClick={rotateLeft}>&lt; Left</button>
+        <button onClick={rotateRight}>Right &gt;</button>
       </div>
-    </section>
+    </div>
   );
 }
