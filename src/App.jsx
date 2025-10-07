@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import Features from "./components/Features";
-import ProductCarousel from "./components/ProductCarousel"; // 🌀 Added Product Carousel
+import ProductCarousel from "./components/ProductCarousel"; // 🌀 3D Product Carousel
 import Contact from "./components/Contact"; // 💌 Contact Section
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
@@ -10,10 +10,10 @@ import ThemeManager from "./components/ThemeManager";
 export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white">
-      {/* 🌈 Auto Rotating Background */}
+      {/* 🌈 Auto Rotating Glassmorphism Background */}
       <ThemeManager />
 
-      {/* 🌟 Foreground Content */}
+      {/* 🌟 Navigation */}
       <Navbar />
 
       {/* 🏠 Hero Section */}
@@ -37,7 +37,7 @@ export default function App() {
       {/* 🌀 Product Carousel Section */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 1 }}
       >
         <ProductCarousel />
