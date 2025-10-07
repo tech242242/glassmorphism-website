@@ -1,101 +1,33 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from "react";
+
+const features = [
+  { title: "Horere Cronus", desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
+  { title: "Nobe Fis", desc: "Natus rerum magni fuga, mollitia repellat et totam dolorum." },
+  { title: "Urnamed Piliee", desc: "Omnis asperiores doloremque distinctio autem illum adipisci." },
+];
 
 const Features = () => {
-  const features = [
-    {
-      title: "Horere Cronus",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      delay: 0.2
-    },
-    {
-      title: "Nobe Fis",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      delay: 0.4
-    },
-    {
-      title: "Unramed Pillae",
-      description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      delay: 0.6
-    }
-  ]
-
-  const lists = [
-    {
-      title: "Buns Commesp",
-      items: ["Cines", "Bun", "Non", "Sonia", "Wivest", "Biosium"],
-      delay: 0.8
-    },
-    {
-      title: "Solpis in Sore Sruptcing",
-      items: ["ADALANC", "SOLOMNE", "Ralf Gould", "Michalata", "Chibilla", "Vishnu"],
-      delay: 1.0
-    },
-    {
-      title: "Colmecs",
-      items: ["SODIETA CODE BUT CREATIVE ESSENCE", "Salute a Placy", "Sostegre Dano", "Desurre Flora Luminio"],
-      delay: 1.2
-    }
-  ]
-
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: feature.delay }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="glass-card rounded-2xl p-8 text-white group cursor-pointer"
-            >
-              <h3 className="text-2xl font-bold mb-4 text-gradient">{feature.title}</h3>
-              <p className="text-gray-200 leading-relaxed">{feature.description}</p>
-              <div className="mt-4 h-1 w-20 bg-gradient-to-r from-purple-neon to-blue-neon rounded-full transform group-hover:w-32 transition-all duration-300"></div>
-            </motion.div>
-          ))}
-        </div>
+    <section className="py-24 px-6 md:px-16 relative text-white">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-neon/10 to-transparent blur-2xl"></div>
 
-        {/* Divider */}
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="h-px bg-gradient-to-r from-transparent via-purple-neon to-transparent my-16"
-        ></motion.div>
+      <h2 className="text-4xl font-extrabold mb-12 text-center text-gradient relative z-10">
+        Features
+      </h2>
 
-        {/* List Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {lists.map((list, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: list.delay }}
-              className="glass-card rounded-2xl p-8"
-            >
-              <h4 className="text-xl font-bold mb-6 text-gradient text-center">{list.title}</h4>
-              <ul className="space-y-3">
-                {list.items.map((item, itemIndex) => (
-                  <motion.li
-                    key={itemIndex}
-                    whileHover={{ x: 10, color: '#7B2FF7' }}
-                    className="text-white flex items-center transition-all duration-300 cursor-pointer"
-                  >
-                    <span className="w-2 h-2 bg-blue-neon rounded-full mr-3"></span>
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
+      <div className="grid md:grid-cols-3 gap-10 relative z-10">
+        {features.map((item, index) => (
+          <div
+            key={index}
+            className="glass-card rounded-3xl p-8 hover:scale-105 transition-transform duration-300"
+          >
+            <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+            <p className="text-gray-300">{item.desc}</p>
+          </div>
+        ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Features
+export default Features;
