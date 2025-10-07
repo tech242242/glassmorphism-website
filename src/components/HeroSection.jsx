@@ -1,62 +1,46 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 pt-20">
-      <div className="text-center max-w-4xl mx-auto">
-        <motion.h1 
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold mb-6"
-        >
-          <span className="text-gradient">Studio Play</span>
-        </motion.h1>
-        
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-2xl md:text-3xl font-light text-white mb-8"
-        >
-          Stuodic
-        </motion.h2>
+    <section className="relative flex flex-col items-center justify-center text-center min-h-screen overflow-hidden px-6">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-neon/30 via-blue-neon/20 to-pink-neon/20 blur-3xl opacity-40"></div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg md:text-xl text-gray-200 mb-12 leading-relaxed max-w-2xl mx-auto"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </motion.p>
+      {/* Floating Glow Orb */}
+      <div className="absolute top-40 right-40 w-72 h-72 bg-blue-neon/30 rounded-full blur-3xl animate-float"></div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="glass-card px-8 py-4 rounded-full text-white font-semibold text-lg glow-hover bg-gradient-to-r from-purple-500 to-blue-400"
-          >
-            Explore Features
-          </motion.button>
-          
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="glass-card px-8 py-4 rounded-full text-white font-semibold text-lg border border-white border-opacity-30"
-          >
+      {/* Content */}
+      <div className="relative z-10 max-w-3xl text-white">
+        <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-gradient">
+          Studio Pley <br /> Studoic
+        </h1>
+        <p className="text-lg text-gray-300 mb-6">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+          repellat nisi fuga deleniti amet!
+        </p>
+
+        <div className="flex justify-center gap-4">
+          <button className="px-6 py-3 bg-gradient-to-r from-purple-neon to-blue-neon rounded-full font-semibold text-white glow-hover">
+            Get Started
+          </button>
+          <button className="px-6 py-3 glass-effect rounded-full border border-purple-neon/30 text-white hover:border-blue-neon/50">
             Learn More
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
+      </div>
+
+      {/* Mock Image Section */}
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-16">
+        <div className="glass-card p-10 rounded-3xl backdrop-blur-lg bg-white/5 shadow-2xl animate-float mt-10">
+          <img
+            src="/vite.svg"
+            alt="Studio visual"
+            className="w-32 h-32 mx-auto opacity-90"
+          />
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;
