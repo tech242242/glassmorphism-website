@@ -3,19 +3,20 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import Features from "./components/Features";
 import ProductCarousel from "./components/ProductCarousel";
+import About from "./components/About";                     // 🆕 About Section
+import CustomerReviews from "./components/CustomerReviews"; // 🆕 Reviews Section
+import TeamSection from "./components/TeamSection";         // 🆕 Team Section
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
-// ❌ RotatingLogo ka import hatao — ye sirf Navbar me hona chahiye
-// import RotatingLogo from "./components/RotatingLogo";
 
 export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white">
-      {/* 🌈 Background Theme */}
+      {/* 🌈 Background */}
       <ThemeManager />
 
-      {/* 🌟 Navbar (Yahin par logo + ring render hoga) */}
+      {/* 🌟 Navbar */}
       <Navbar />
 
       {/* 🏠 Hero Section */}
@@ -27,7 +28,7 @@ export default function App() {
         <HeroSection />
       </motion.div>
 
-      {/* 💎 Features Section */}
+      {/* 💎 Features */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -36,7 +37,7 @@ export default function App() {
         <Features />
       </motion.div>
 
-      {/* 🌀 Product Carousel Section */}
+      {/* 🌀 Product Carousel */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +46,34 @@ export default function App() {
         <ProductCarousel />
       </motion.div>
 
-      {/* 💌 Contact Section */}
+      {/* 🆕 About Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 1 }}
+      >
+        <About />
+      </motion.div>
+
+      {/* 🆕 Customer Reviews */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 1 }}
+      >
+        <CustomerReviews />
+      </motion.div>
+
+      {/* 🆕 Our Team */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7, duration: 1 }}
+      >
+        <TeamSection />
+      </motion.div>
+
+      {/* 💌 Contact */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
