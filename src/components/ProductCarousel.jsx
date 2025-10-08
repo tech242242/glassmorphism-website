@@ -12,6 +12,17 @@ const images = [
   "https://i.ibb.co/8D6nPr8W/00e1768d577f36ce3c1dc5adb0aaa460.jpg",
 ];
 
+const links = [
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+];
+
 export default function ProductCarousel() {
   const [angle, setAngle] = useState(0);
   const total = images.length;
@@ -22,6 +33,7 @@ export default function ProductCarousel() {
 
   return (
     <div className="carousel-wrapper">
+      {/* 🆙 Heading moved upward */}
       <h2 className="carousel-title">Our Products</h2>
 
       <div
@@ -35,11 +47,14 @@ export default function ProductCarousel() {
               transform: `rotateY(${i * degPerImage}deg) translateZ(300px)`,
             }}
           >
-            <img src={img} alt={`Product ${i + 1}`} />
+            <a href={links[i]} target="_blank" rel="noopener noreferrer">
+              <img src={img} alt={`Product ${i + 1}`} />
+            </a>
           </span>
         ))}
       </div>
 
+      {/* ⬇ Buttons moved downward with spacing */}
       <div className="buttons">
         <button onClick={rotateLeft}>&lt; Left</button>
         <button onClick={rotateRight}>Right &gt;</button>
