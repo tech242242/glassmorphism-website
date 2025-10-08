@@ -1,26 +1,63 @@
-import React from "react";
-import RotatingLogo from "./RotatingLogo";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const menuItems = [
+    { name: "Home", link: "#home" },
+    { name: "Features", link: "#features" },
+    { name: "Products", link: "#products" },
+    { name: "About", link: "#about" },
+    { name: "Team", link: "#team" },
+    { name: "Reviews", link: "#reviews" },
+    { name: "Contact", link: "#contact" },
+  ];
+
   return (
-    <nav className="w-full flex items-center justify-between px-8 py-4 bg-transparent backdrop-blur-md z-50">
-      <div className="flex items-center space-x-3">
-        {/* Rotating logo + Studio Play text */}
-        <RotatingLogo />
-        <span className="text-xl font-bold">Studio Play</span>
+    <nav className="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-lg shadow-lg">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <h1 className="text-2xl font-bold text-pink-400">StudioPlay</h1>
+
+        {/* 🌐 Desktop Menu */}
+        <ul className="hidden md:flex space-x-8 text-white font-medium">
+          {menuItems.map((item) => (
+            <li key={item.name}>
+              <a
+                href={item.link}
+                className="hover:text-pink-400 transition-colors"
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* 📱 Mobile Menu Button */}
+        <button
+          className="md:hidden text-pink-400 text-3xl"
+          onClick={() => setOpen(!open)}
+          aria-label="menu"
+        >
+          ☰
+        </button>
       </div>
 
-      <ul className="hidden md:flex space-x-8 text-white font-medium">
-        <li><a href="#home" className="hover:text-pink-400">Home</a></li>
-        <li><a href="#about" className="hover:text-pink-400">About</a></li>
-        <li><a href="#features" className="hover:text-pink-400">Features</a></li>
-        <li><a href="#projects" className="hover:text-pink-400">Projects</a></li>
-        <li><a href="#contact" className="hover:text-pink-400">Contact</a></li>
-      </ul>
-
-      <a href="#get-started" className="px-5 py-2 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full text-white font-semibold">
-        Get Started
-      </a>
+      {/* 📱 Mobile Menu List */}
+      {open && (
+        <div className="md:hidden bg-black/80 backdrop-blur-lg text-white text-center py-4 space-y-4">
+          {menuItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.link}
+              onClick={() => setOpen(false)}
+              className="block text-lg hover:text-pink-400 transition"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
