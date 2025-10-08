@@ -2,27 +2,26 @@ import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import Features from "./components/Features";
-import ProductCarousel from "./components/ProductCarousel";
-import Contact from "./components/Contact";
+import ProductCarousel from "./components/ProductCarousel"; // 🌀 3D Product Carousel
+import Contact from "./components/Contact"; // 💌 Contact Section
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
-import RotatingLogo from "./components/RotatingLogo"; // 🌀 Fixed Logo
+import RotatingLogo from "./components/RotatingLogo"; // 🌀 Rotating Logo
 
 export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white">
-      {/* 🌈 Glassmorphism Background */}
+      {/* 🌈 Auto Rotating Glassmorphism Background */}
       <ThemeManager />
 
-      {/* 🌀 Fixed Rotating Logo in Top-Left */}
+      {/* 🌀 Fixed Rotating Logo (Top-Left, Slightly Lowered) */}
       <RotatingLogo />
 
-      {/* 🌟 Navbar */}
+      {/* 🌟 Navigation */}
       <Navbar />
 
       {/* 🏠 Hero Section */}
       <motion.div
-        className="pt-24" // 👈 this gives space so Hero content doesn't hide under logo
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
