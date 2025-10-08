@@ -6,18 +6,15 @@ import ProductCarousel from "./components/ProductCarousel"; // 🌀 3D Product C
 import Contact from "./components/Contact"; // 💌 Contact Section
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
-import RotatingLogo from "./components/RotatingLogo"; // 🌀 Rotating Logo
+import RotatingLogo from "./components/RotatingLogo"; // 🌀 Fixed Logo
 
 export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white">
-      {/* 🌈 Auto Rotating Glassmorphism Background */}
+      {/* 🌈 Background Theme */}
       <ThemeManager />
 
-      {/* 🌀 Fixed Rotating Logo (Top-Left, Slightly Lowered) */}
-      <RotatingLogo />
-
-      {/* 🌟 Navigation */}
+      {/* 🌟 Navbar */}
       <Navbar />
 
       {/* 🏠 Hero Section */}
@@ -28,6 +25,9 @@ export default function App() {
       >
         <HeroSection />
       </motion.div>
+
+      {/* 🌀 Fixed Rotating Logo (Studio Play ke niche fix hoga) */}
+      <RotatingLogo />
 
       {/* 💎 Features Section */}
       <motion.div
