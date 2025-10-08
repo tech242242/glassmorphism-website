@@ -6,7 +6,8 @@ import ProductCarousel from "./components/ProductCarousel";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
-import RotatingLogo from "./components/RotatingLogo"; // 🌀 Scroll ke sath move hone wala logo
+// ❌ RotatingLogo ka import hatao — ye sirf Navbar me hona chahiye
+// import RotatingLogo from "./components/RotatingLogo";
 
 export default function App() {
   return (
@@ -14,7 +15,7 @@ export default function App() {
       {/* 🌈 Background Theme */}
       <ThemeManager />
 
-      {/* 🌟 Navbar */}
+      {/* 🌟 Navbar (Yahin par logo + ring render hoga) */}
       <Navbar />
 
       {/* 🏠 Hero Section */}
@@ -24,9 +25,6 @@ export default function App() {
         transition={{ duration: 1 }}
       >
         <HeroSection />
-
-        {/* 🌀 Rotating Logo — ab fixed nahi, content ke sath scroll karega */}
-        <RotatingLogo />
       </motion.div>
 
       {/* 💎 Features Section */}
