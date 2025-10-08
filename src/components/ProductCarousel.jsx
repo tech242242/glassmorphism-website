@@ -1,16 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductCarousel.css";
 
 const images = [
-  "https://i.ibb.co/4w3C1mCH/0d77ebc9799d4a0a131af2949f17222d.jpg",
-  "https://i.ibb.co/v8yVMGN/996ced4d12483929c3fd8aa4a90be285.jpg",
-  "https://i.ibb.co/GQw6Xwwt/b875cadf4323f561b442d18af6be4985.jpg",
-  "https://i.ibb.co/vCbfDkKr/fa553ac9c5a7a559d902ff3319a4e313.jpg",
-  "https://i.ibb.co/4R3r0LBm/49611315729d7b19fd06d9c0d41980cd.jpg",
-  "https://i.ibb.co/XxcZG2Cf/257a0631e3051140356b697ff111f3fd.jpg",
-  "https://i.ibb.co/KcM8C8Dc/1eb1ed7004c702b0087d0216fecc6647.jpg",
-  "https://i.ibb.co/8D6nPr8W/00e1768d577f36ce3c1dc5adb0aaa460.jpg",
-  "https://i.ibb.co/KcM8C8Dc/1eb1ed7004c702b0087d0216fecc6647.jpg",
   "https://i.ibb.co/4w3C1mCH/0d77ebc9799d4a0a131af2949f17222d.jpg",
   "https://i.ibb.co/v8yVMGN/996ced4d12483929c3fd8aa4a90be285.jpg",
   "https://i.ibb.co/GQw6Xwwt/b875cadf4323f561b442d18af6be4985.jpg",
@@ -25,14 +16,25 @@ export default function ProductCarousel() {
   const [angle, setAngle] = useState(0);
   const total = images.length;
   const degPerImage = 360 / total;
+  const [translateZ, setTranslateZ] = useState(300);
 
-  const rotateLeft = () => {
-    setAngle((prev) => prev + degPerImage);
-  };
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setTranslateZ(500);
+      } else if (window.innerWidth <= 600) {
+        setTranslateZ(250);
+      } else {
+        setTranslateZ(350);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  const rotateRight = () => {
-    setAngle((prev) => prev - degPerImage);
-  };
+  const rotateLeft = () => setAngle((prev) => prev + degPerImage);
+  const rotateRight = () => setAngle((prev) => prev - degPerImage);
 
   return (
     <div className="carousel-wrapper">
@@ -46,7 +48,7 @@ export default function ProductCarousel() {
           <span
             key={i}
             style={{
-              transform: `rotateY(${i * degPerImage}deg) translateZ(300px)`,
+              transform: `rotateY(${i * degPerImage}deg) translateZ(${translateZ}px)`,
             }}
           >
             <img src={img} alt={`Product ${i + 1}`} />
