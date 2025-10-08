@@ -6,12 +6,16 @@ import ProductCarousel from "./components/ProductCarousel"; // 🌀 3D Product C
 import Contact from "./components/Contact"; // 💌 Contact Section
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
+import RotatingLogo from "./components/RotatingLogo"; // 🌀 NEW: Rotating Logo
 
 export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white">
       {/* 🌈 Auto Rotating Glassmorphism Background */}
       <ThemeManager />
+
+      {/* 🌀 Fixed Rotating Logo in Top-Left */}
+      <RotatingLogo />
 
       {/* 🌟 Navigation */}
       <Navbar />
