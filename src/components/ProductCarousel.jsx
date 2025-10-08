@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./ProductCarousel.css";
 
 const images = [
@@ -16,22 +16,6 @@ export default function ProductCarousel() {
   const [angle, setAngle] = useState(0);
   const total = images.length;
   const degPerImage = 360 / total;
-  const [translateZ, setTranslateZ] = useState(300);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setTranslateZ(500);
-      } else if (window.innerWidth <= 600) {
-        setTranslateZ(250);
-      } else {
-        setTranslateZ(350);
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const rotateLeft = () => setAngle((prev) => prev + degPerImage);
   const rotateRight = () => setAngle((prev) => prev - degPerImage);
@@ -48,7 +32,7 @@ export default function ProductCarousel() {
           <span
             key={i}
             style={{
-              transform: `rotateY(${i * degPerImage}deg) translateZ(${translateZ}px)`,
+              transform: `rotateY(${i * degPerImage}deg) translateZ(300px)`,
             }}
           >
             <img src={img} alt={`Product ${i + 1}`} />
