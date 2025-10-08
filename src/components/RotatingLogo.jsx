@@ -20,7 +20,7 @@ export default function RotatingLogo() {
         title="Open outer link"
       >
         <motion.img
-          src="https://i.ibb.co/sJpFTbtK/1ce88644e964bdfbd268f4ab3973494e.webp"
+          src="https://i.ibb.co/zHVPDbt1/abed00ed7b867030f62f7b7637f2bbc9-1.png"
           alt="outer ring"
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, ease: "linear", duration: 8 }}
