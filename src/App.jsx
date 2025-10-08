@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import Features from "./components/Features";
-import ProductCarousel from "./components/ProductCarousel"; // 🌀 3D Product Carousel
-import Contact from "./components/Contact"; // 💌 Contact Section
+import ProductCarousel from "./components/ProductCarousel";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
-import RotatingLogo from "./components/RotatingLogo"; // 🌀 Fixed Logo
+import RotatingLogo from "./components/RotatingLogo"; // 🌀 Scroll ke sath move hone wala logo
 
 export default function App() {
   return (
@@ -24,10 +24,10 @@ export default function App() {
         transition={{ duration: 1 }}
       >
         <HeroSection />
-      </motion.div>
 
-      {/* 🌀 Fixed Rotating Logo (Studio Play ke niche fix hoga) */}
-      <RotatingLogo />
+        {/* 🌀 Rotating Logo — ab fixed nahi, content ke sath scroll karega */}
+        <RotatingLogo />
+      </motion.div>
 
       {/* 💎 Features Section */}
       <motion.div
