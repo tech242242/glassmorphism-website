@@ -5,7 +5,7 @@
   justify-content: center;
   perspective: 1200px;
   position: relative;
-  padding: 60px 0;
+  padding: 80px 0; /* increased padding for spacing */
   background: rgba(5, 5, 5, 0.85);
 }
 
@@ -13,7 +13,7 @@
   color: #0ff;
   font-size: 2.2rem;
   text-shadow: 0 0 8px #0ff, 0 0 16px #ff00ff;
-  margin-bottom: 25px;
+  margin-bottom: 40px; /* more space between title and images */
   letter-spacing: 2px;
 }
 
@@ -23,6 +23,7 @@
   height: 280px;
   transform-style: preserve-3d;
   transition: transform 1s;
+  margin-bottom: 40px; /* space between images and buttons */
 }
 
 .carousel-container span {
@@ -48,8 +49,14 @@
   box-shadow: 0 0 25px #ff00ff, 0 0 35px #0ff;
 }
 
+.carousel-container a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .buttons {
-  margin-top: 25px;
+  margin-top: 10px;
   display: flex;
   gap: 20px;
 }
