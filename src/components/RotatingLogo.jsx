@@ -4,8 +4,8 @@ import "./RotatingLogo.css";
 
 export default function RotatingLogo() {
   return (
-    <div className="rotating-logo">
-      {/* Outer rotating ring - link 1 */}
+    <div className="rotating-logo-fixed">
+      {/* Outer rotating ring */}
       <a
         href="https://ibb.co/k6VhL5M4"
         target="_blank"
@@ -13,7 +13,7 @@ export default function RotatingLogo() {
         className="outer-ring"
       >
         <motion.img
-          src="https://i.ibb.co/zHVPDbt1/abed00ed7b867030f62f7b7637f2bbc9-1.png"
+          src="https://i.ibb.co/sJpFTbtK/1ce88644e964bdfbd268f4ab3973494e.webp"
           alt="Outer Ring"
           animate={{ rotate: 360 }}
           transition={{
@@ -24,7 +24,7 @@ export default function RotatingLogo() {
         />
       </a>
 
-      {/* Inner logo - link 2 */}
+      {/* Inner Logo */}
       <a
         href="https://ibb.co/W86FbbC"
         target="_blank"
