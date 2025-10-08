@@ -3,81 +3,93 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import Features from "./components/Features";
 import ProductCarousel from "./components/ProductCarousel";
-import About from "./components/About";                     // 🆕 About Section
-import CustomerReviews from "./components/CustomerReviews"; // 🆕 Reviews Section
-import TeamSection from "./components/TeamSection";         // 🆕 Team Section
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
+import RotatingLogo from "./components/RotatingLogo";
+
+// 🆕 New Sections
+import AboutSection from "./components/AboutSection";
+import TeamSection from "./components/TeamSection";
+import CustomerReviews from "./components/CustomerReviews";
 
 export default function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white">
+    <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white scroll-smooth">
       {/* 🌈 Background */}
       <ThemeManager />
 
-      {/* 🌟 Navbar */}
+      {/* 🧭 Navbar */}
       <Navbar />
 
       {/* 🏠 Hero Section */}
       <motion.div
+        id="home"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
+        className="relative"
       >
         <HeroSection />
+        <RotatingLogo />
       </motion.div>
 
-      {/* 💎 Features */}
+      {/* 💎 Features Section */}
       <motion.div
+        id="features"
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 1 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
       >
         <Features />
       </motion.div>
 
-      {/* 🌀 Product Carousel */}
+      {/* 🌀 Product Carousel Section */}
       <motion.div
+        id="products"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 1 }}
+        transition={{ duration: 1 }}
       >
         <ProductCarousel />
       </motion.div>
 
-      {/* 🆕 About Section */}
+      {/* 📝 About Section */}
       <motion.div
+        id="about"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 1 }}
+        transition={{ duration: 1 }}
       >
-        <About />
+        <AboutSection />
       </motion.div>
 
-      {/* 🆕 Customer Reviews */}
+      {/* 🧑‍💻 Team Section */}
       <motion.div
+        id="team"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 1 }}
-      >
-        <CustomerReviews />
-      </motion.div>
-
-      {/* 🆕 Our Team */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, duration: 1 }}
+        transition={{ duration: 1 }}
       >
         <TeamSection />
       </motion.div>
 
-      {/* 💌 Contact */}
+      {/* ⭐ Customer Reviews */}
       <motion.div
+        id="reviews"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <CustomerReviews />
+      </motion.div>
+
+      {/* 💌 Contact Section */}
+      <motion.div
+        id="contact"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
       >
         <Contact />
       </motion.div>
