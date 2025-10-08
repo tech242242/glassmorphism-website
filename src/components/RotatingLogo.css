@@ -1,21 +1,20 @@
-.rotating-logo-fixed {
-  position: fixed;
-  top: 140px;           /* Studio Play text ke niche fix */
-  left: 50%;
-  transform: translateX(-50%);
+.rotating-logo-scroll {
+  position: relative;       /* ✅ fixed nahi, normal flow me */
+  top: 20px;                /* Studio Play text ke niche thoda gap */
+  left: 0;                  /* Top Left me rakhne ke liye */
   width: 110px;
   height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;        /* sab ke upar dikhai de */
+  margin-left: 30px;        /* left se thoda andar */
+  z-index: 10;
 }
 
 .outer-ring img {
   width: 110px;
   height: 110px;
   object-fit: contain;
-  pointer-events: auto;
 }
 
 .inner-logo img {
@@ -26,18 +25,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   object-fit: contain;
-  pointer-events: auto;
-}
-
-.rotating-logo-fixed a {
-  display: block;
 }
 
 @media (max-width: 768px) {
-  .rotating-logo-fixed {
-    top: 120px;
+  .rotating-logo-scroll {
     width: 90px;
     height: 90px;
+    margin-left: 20px;
   }
 
   .outer-ring img {
@@ -52,10 +46,10 @@
 }
 
 @media (max-width: 480px) {
-  .rotating-logo-fixed {
-    top: 110px;
+  .rotating-logo-scroll {
     width: 80px;
     height: 80px;
+    margin-left: 15px;
   }
 
   .outer-ring img {
