@@ -1,50 +1,64 @@
-import React from "react";
-import { motion } from "framer-motion";
-import "./RotatingLogo.css";
+import React, { useState } from "react";
+import "./ProductCarousel.css";
 
-const OUTER_LINK = "https://ibb.co/k6VhL5M4";
-const INNER_LINK = "https://ibb.co/W86FbbC";
+const images = [
+  "https://i.ibb.co/4w3C1mCH/0d77ebc9799d4a0a131af2949f17222d.jpg",
+  "https://i.ibb.co/v8yVMGN/996ced4d12483929c3fd8aa4a90be285.jpg",
+  "https://i.ibb.co/GQw6Xwwt/b875cadf4323f561b442d18af6be4985.jpg",
+  "https://i.ibb.co/vCbfDkKr/fa553ac9c5a7a559d902ff3319a4e313.jpg",
+  "https://i.ibb.co/4R3r0LBm/49611315729d7b19fd06d9c0d41980cd.jpg",
+  "https://i.ibb.co/XxcZG2Cf/257a0631e3051140356b697ff111f3fd.jpg",
+  "https://i.ibb.co/KcM8C8Dc/1eb1ed7004c702b0087d0216fecc6647.jpg",
+  "https://i.ibb.co/8D6nPr8W/00e1768d577f36ce3c1dc5adb0aaa460.jpg",
+];
 
-export default function RotatingLogo() {
-  // click outer ring -> open outer link
-  const handleOuterClick = () => {
-    window.open(OUTER_LINK, "_blank", "noopener,noreferrer");
-  };
+const links = [
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+  "https://chatgpt.com/",
+];
+
+export default function ProductCarousel() {
+  const [angle, setAngle] = useState(0);
+  const total = images.length;
+  const degPerImage = 360 / total;
+
+  const rotateLeft = () => setAngle((prev) => prev + degPerImage);
+  const rotateRight = () => setAngle((prev) => prev - degPerImage);
 
   return (
-    <div className="rotating-logo-navbar" role="group" aria-label="brand logo">
-      {/* outer ring (clickable) */}
+    <div className="carousel-wrapper">
+      {/* 🆙 Heading moved upward */}
+      <h2 className="carousel-title">Our Products</h2>
+
       <div
-        className="outer-ring"
-        onClick={handleOuterClick}
-        title="Open outer link"
+        className="carousel-container"
+        style={{ transform: `rotateY(${angle}deg)` }}
       >
-        <motion.img
-          src="https://i.ibb.co/sJpFTbtK/1ce88644e964bdfbd268f4ab3973494e.webp"
-          alt="outer ring"
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 8 }}
-          style={{ transformOrigin: "50% 50%" }}
-        />
+        {images.map((img, i) => (
+          <span
+            key={i}
+            style={{
+              transform: `rotateY(${i * degPerImage}deg) translateZ(300px)`,
+            }}
+          >
+            <a href={links[i]} target="_blank" rel="noopener noreferrer">
+              <img src={img} alt={`Product ${i + 1}`} />
+            </a>
+          </span>
+        ))}
       </div>
 
-      {/* inner logo (separate link). stop propagation so outer ring click won't fire */}
-      <a
-        className="inner-logo"
-        href={INNER_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={(e) => {
-          // prevent outer click when clicking inner logo
-          e.stopPropagation();
-        }}
-        title="Open inner logo link"
-      >
-        <img
-          src="https://i.ibb.co/gq3w55Y/Picsart-25-10-08-17-53-43-447.png"
-          alt="inner logo"
-        />
-      </a>
+      {/* ⬇ Buttons moved downward with spacing */}
+      <div className="buttons">
+        <button onClick={rotateLeft}>&lt; Left</button>
+        <button onClick={rotateRight}>Right &gt;</button>
+      </div>
     </div>
   );
 }
