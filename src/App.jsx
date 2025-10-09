@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
 import RotatingLogo from "./components/RotatingLogo";
-import AboutSection from "./components/AboutSection";
+import About from "./components/About";   // ✅ fixed here
 import TeamSection from "./components/TeamSection";
 import CustomerReviews from "./components/CustomerReviews";
 
@@ -56,7 +56,7 @@ export default function App() {
 
       {/* 📝 About */}
       <section id="about">
-        <AboutSection />
+        <About />   {/* ✅ fixed here */}
       </section>
 
       {/* 👥 Team */}
