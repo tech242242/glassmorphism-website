@@ -1,4 +1,5 @@
 import { useState } from "react";
+import RotatingLogo from "./RotatingLogo"; // 🌀 Import rotating logo
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -16,10 +17,18 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-lg shadow-lg border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* 🔥 Logo */}
-        <h1 className="text-2xl font-bold text-cyan-400 tracking-wide">
-          StudioPlay
-        </h1>
+        {/* 🔥 Logo Section (Rotating Logo + Text side by side) */}
+        <div className="flex items-center space-x-3">
+          {/* 🌀 Rotating Logo */}
+          <div className="w-10 h-10">
+            <RotatingLogo />
+          </div>
+
+          {/* 📝 StudioPlay Text */}
+          <h1 className="text-2xl font-bold text-cyan-400 tracking-wide">
+            StudioPlay
+          </h1>
+        </div>
 
         {/* 🌐 Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-white font-medium">
