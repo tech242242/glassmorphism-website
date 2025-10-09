@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
 import RotatingLogo from "./components/RotatingLogo";
-import About from "./components/About";   // ✅ fixed here
+import About from "./components/About"; // ✅ fixed
 import TeamSection from "./components/TeamSection";
 import CustomerReviews from "./components/CustomerReviews";
 
@@ -28,7 +28,6 @@ export default function App() {
           transition={{ duration: 1 }}
         >
           <HeroSection />
-          <RotatingLogo />
         </motion.div>
       </section>
 
@@ -43,6 +42,16 @@ export default function App() {
         </motion.div>
       </section>
 
+      {/* 🔥 Rotating Logo — ✅ moved here */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="flex justify-center my-12"
+      >
+        <RotatingLogo />
+      </motion.div>
+
       {/* 🌀 Products */}
       <section id="products">
         <motion.div
@@ -56,7 +65,7 @@ export default function App() {
 
       {/* 📝 About */}
       <section id="about">
-        <About />   {/* ✅ fixed here */}
+        <About />
       </section>
 
       {/* 👥 Team */}
