@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
 import RotatingLogo from "./components/RotatingLogo";
-import About from "./components/About"; // ✅ fixed
+import About from "./components/About";
 import TeamSection from "./components/TeamSection";
 import CustomerReviews from "./components/CustomerReviews";
 
@@ -19,6 +19,17 @@ export default function App() {
 
       {/* 🧭 Navbar */}
       <Navbar />
+
+      {/* 🌀 Rotating Logo - 🔥 Moved to top-left under logo text */}
+      <div className="absolute top-16 left-6 z-40">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <RotatingLogo />
+        </motion.div>
+      </div>
 
       {/* 🏠 Hero Section */}
       <section id="home" className="relative">
@@ -41,16 +52,6 @@ export default function App() {
           <Features />
         </motion.div>
       </section>
-
-      {/* 🔥 Rotating Logo — ✅ moved here */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="flex justify-center my-12"
-      >
-        <RotatingLogo />
-      </motion.div>
 
       {/* 🌀 Products */}
       <section id="products">
