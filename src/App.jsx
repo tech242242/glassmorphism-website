@@ -6,7 +6,6 @@ import ProductCarousel from "./components/ProductCarousel";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
-import RotatingLogo from "./components/RotatingLogo";
 import About from "./components/About";
 import TeamSection from "./components/TeamSection";
 import CustomerReviews from "./components/CustomerReviews";
@@ -17,19 +16,8 @@ export default function App() {
       {/* 🌈 Background */}
       <ThemeManager />
 
-      {/* 🧭 Navbar */}
+      {/* 🧭 Navbar (RotatingLogo bhi Navbar ke sath hai) */}
       <Navbar />
-
-      {/* 🌀 Rotating Logo - 🔥 Moved to top-left under logo text */}
-      <div className="absolute top-16 left-6 z-40">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <RotatingLogo />
-        </motion.div>
-      </div>
 
       {/* 🏠 Hero Section */}
       <section id="home" className="relative">
