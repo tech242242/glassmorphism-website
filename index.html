@@ -1,16 +1,211 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Studio Play | Stuodic</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Glassmorphism Website</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Carousel */
+      .carousel-container {
+        position: relative;
+        width: 200px;
+        height: 280px;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+        margin: 0 auto;
+      }
+      .carousel-container span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .carousel-container span img {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        border: 2px solid #0ff;
+        box-shadow: 0 0 10px #0ff, 0 0 25px #ff00ff;
+        object-fit: cover;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .carousel-container span img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px #ff00ff, 0 0 35px #0ff;
+      }
+      @media (max-width: 600px) {
+        .carousel-container {
+          width: 130px;
+          height: 180px;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+
+  <body
+    class="bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e] text-white font-[Poppins] overflow-x-hidden"
+  >
+    <!-- 🌟 Navbar -->
+    <header
+      class="fixed top-0 w-full bg-black/50 backdrop-blur-md z-50 px-6 py-4 flex justify-between items-center"
+    >
+      <h1 class="text-cyan-400 text-2xl font-bold">Play Studio</h1>
+
+      <button
+        id="menu-btn"
+        class="md:hidden text-white text-3xl focus:outline-none"
+      >
+        ☰
+      </button>
+
+      <nav
+        id="menu"
+        class="absolute md:static bg-black/80 md:bg-transparent w-full md:w-auto left-0 top-[-300px] md:top-auto transition-all duration-300 md:flex md:gap-8 p-4 md:p-0 text-center md:text-left"
+      >
+        <a href="#home" class="block py-2 hover:text-cyan-400">Home</a>
+        <a href="#features" class="block py-2 hover:text-cyan-400">Features</a>
+        <a href="#projects" class="block py-2 hover:text-cyan-400">Products</a>
+        <a href="#about" class="block py-2 hover:text-cyan-400">About</a>
+        <a href="#reviews" class="block py-2 hover:text-cyan-400">Reviews</a>
+        <a href="#contact" class="block py-2 hover:text-cyan-400">Contact</a>
+      </nav>
+    </header>
+
+    <!-- 🏠 Home Section -->
+    <section
+      id="home"
+      class="min-h-screen flex flex-col justify-center items-center text-center"
+    >
+      <h2 class="text-5xl font-bold mb-4">Welcome to Play Studio</h2>
+      <p class="max-w-xl text-gray-300">
+        Creative glassmorphism website with smooth scrolling and cool animations
+      </p>
+    </section>
+
+    <!-- 🧩 Features Section -->
+    <section id="features" class="py-24 text-center">
+      <h2 class="text-4xl font-bold mb-10 text-cyan-400">Our Features</h2>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+      >
+        <div class="p-6 bg-white/10 rounded-xl backdrop-blur-lg">Feature 1</div>
+        <div class="p-6 bg-white/10 rounded-xl backdrop-blur-lg">Feature 2</div>
+        <div class="p-6 bg-white/10 rounded-xl backdrop-blur-lg">Feature 3</div>
+        <div class="p-6 bg-white/10 rounded-xl backdrop-blur-lg">Feature 4</div>
+        <div class="p-6 bg-white/10 rounded-xl backdrop-blur-lg">Feature 5</div>
+        <div class="p-6 bg-white/10 rounded-xl backdrop-blur-lg">Feature 6</div>
+      </div>
+    </section>
+
+    <!-- 📦 Products Section (Carousel) -->
+    <section id="projects" class="py-24 text-center bg-black/30">
+      <h2 class="text-4xl font-bold mb-10 text-cyan-400">Our Products</h2>
+      <div class="carousel-container" id="carousel"></div>
+    </section>
+
+    <!-- 👤 About Section -->
+    <section id="about" class="py-24 text-center">
+      <h2 class="text-4xl font-bold mb-6 text-cyan-400">About Us</h2>
+      <p class="max-w-2xl mx-auto text-gray-300">
+        We are a creative team passionate about building modern, interactive
+        websites and apps using stunning design and smooth user experiences.
+      </p>
+    </section>
+
+    <!-- 💬 Customer Reviews -->
+    <section id="reviews" class="py-24 text-center bg-black/30">
+      <h2 class="text-4xl font-bold mb-10 text-cyan-400">Customer Reviews</h2>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+      >
+        <div class="p-6 bg-white/10 rounded-xl backdrop-blur-lg">
+          “Great service and design!”
+        </div>
+        <div class="p-6 bg-white/10 rounded-xl backdrop-blur-lg">
+          “Smooth animations and modern UI!”
+        </div>
+        <div class="p-6 bg-white/10 rounded-xl backdrop-blur-lg">
+          “Highly recommend this team.”
+        </div>
+      </div>
+    </section>
+
+    <!-- 📞 Contact Section -->
+    <section id="contact" class="py-24 text-center">
+      <h2 class="text-4xl font-bold mb-6 text-cyan-400">Contact Us</h2>
+      <form class="max-w-xl mx-auto space-y-4">
+        <input
+          type="text"
+          placeholder="Name"
+          class="w-full p-3 rounded-lg bg-white/10 border border-white/20"
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          class="w-full p-3 rounded-lg bg-white/10 border border-white/20"
+        />
+        <textarea
+          placeholder="Message"
+          rows="4"
+          class="w-full p-3 rounded-lg bg-white/10 border border-white/20"
+        ></textarea>
+        <button
+          type="submit"
+          class="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 rounded-lg text-black font-semibold"
+        >
+          Send Message
+        </button>
+      </form>
+    </section>
+
+    <!-- 🦶 Footer -->
+    <footer class="py-6 text-center bg-black/50 text-gray-400">
+      © 2025 Play Studio. All rights reserved.
+    </footer>
+
+    <!-- 📜 JavaScript -->
+    <script>
+      // 🌟 Navbar toggle for mobile
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("top-[70px]");
+        menu.classList.toggle("top-[-300px]");
+      });
+
+      // 🌀 Product Carousel
+      const carousel = document.getElementById("carousel");
+      const images = [
+        "https://i.ibb.co/4w3C1mCH/0d77ebc9799d4a0a131af2949f17222d.jpg",
+        "https://i.ibb.co/v8yVMGN/996ced4d12483929c3fd8aa4a90be285.jpg",
+        "https://i.ibb.co/GQw6Xwwt/b875cadf4323f561b442d18af6be4985.jpg",
+        "https://i.ibb.co/vCbfDkKr/fa553ac9c5a7a559d902ff3319a4e313.jpg",
+        "https://i.ibb.co/4R3r0LBm/49611315729d7b19fd06d9c0d41980cd.jpg",
+        "https://i.ibb.co/XxcZG2Cf/257a0631e3051140356b697ff111f3fd.jpg",
+      ];
+
+      let angle = 0;
+      const total = images.length;
+      const degPerImage = 360 / total;
+
+      images.forEach((img, i) => {
+        const span = document.createElement("span");
+        span.style.transform = `rotateY(${i * degPerImage}deg) translateZ(300px)`;
+        span.innerHTML = `<img src="${img}" alt="Product ${i + 1}"/>`;
+        carousel.appendChild(span);
+      });
+
+      setInterval(() => {
+        angle -= degPerImage;
+        carousel.style.transform = `rotateY(${angle}deg)`;
+      }, 3000);
+    </script>
   </body>
 </html>
