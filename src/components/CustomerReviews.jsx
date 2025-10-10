@@ -46,15 +46,15 @@ export default function CustomerReviews() {
             transition={{ duration: 0.8, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            {/* Animated Glow Border */}
+            {/* ✨ Animated Glow Border */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-pink-500/30 via-cyan-400/30 to-purple-500/30 blur-lg rounded-xl"></div>
 
-            {/* Review Content */}
+            {/* 💭 Review Content */}
             <div className="relative z-10">
               <p className="text-gray-200 italic mb-4">“{review.text}”</p>
               <h4 className="font-semibold text-pink-400">{review.name}</h4>
 
-              {/* ⭐ Rating */}
+              {/* ⭐ Rating Stars */}
               <div className="mt-3 flex justify-center text-yellow-400 text-xl">
                 {[...Array(review.rating)].map((_, i) => (
                   <motion.span
@@ -68,7 +68,7 @@ export default function CustomerReviews() {
                 ))}
               </div>
 
-              {/* 🏷️ Small Tag */}
+              {/* 🏷️ Tag */}
               <motion.p
                 className="mt-2 text-sm text-gray-400"
                 initial={{ opacity: 0 }}
@@ -81,26 +81,6 @@ export default function CustomerReviews() {
           </motion.div>
         ))}
       </div>
-
-      {/* ⭐ Overall Rating Summary */}
-      <motion.div
-        className="mt-14 flex flex-col items-center"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <div className="flex space-x-1 text-yellow-400 text-3xl mb-2">
-          <span>⭐</span>
-          <span>⭐</span>
-          <span>⭐</span>
-          <span>⭐</span>
-          <span>⭐</span>
-        </div>
-        <p className="text-gray-300 text-lg">
-          <span className="font-semibold text-white">4.9</span> out of 5 — based on 120+ reviews
-        </p>
-      </motion.div>
     </section>
   );
 }
