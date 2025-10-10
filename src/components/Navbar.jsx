@@ -1,8 +1,9 @@
-import { useState } from "react";
-import RotatingLogo from "./RotatingLogo"; // 🌀 Import rotating logo
+import { useState, useEffect } from "react";
+import RotatingLogo from "./RotatingLogo";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const menuItems = [
     { name: "Home", link: "#home" },
@@ -13,6 +14,28 @@ export default function Navbar() {
     { name: "Reviews", link: "#reviews" },
     { name: "Contact", link: "#contact" },
   ];
+
+  // 🔥 Track active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY + 200;
+      const sections = menuItems.map((item) => ({
+        id: item.link.replace("#", ""),
+        el: document.querySelector(item.link),
+      }));
+      for (let section of sections) {
+        if (
+          section.el &&
+          scrollY >= section.el.offsetTop &&
+          scrollY < section.el.offsetTop + section.el.offsetHeight
+        ) {
+          setActiveSection(section.id);
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-lg">
@@ -33,14 +56,19 @@ export default function Navbar() {
             <li key={item.name} className="relative group">
               <a
                 href={item.link}
-                className="relative px-4 py-2 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-white transition-all duration-300 
-                hover:bg-gradient-to-r hover:from-cyan-400/30 hover:to-pink-500/30 hover:text-white 
-                hover:shadow-[0_0_20px_rgba(255,0,255,0.4)] hover:border-pink-400/50"
+                className={`relative px-4 py-2 rounded-xl border border-white/10 text-white transition-all duration-300
+                  ${
+                    activeSection === item.link.replace("#", "")
+                      ? "bg-gradient-to-r from-cyan-400/40 to-pink-500/40 shadow-[0_0_18px_rgba(255,0,255,0.4)]"
+                      : "bg-white/5 hover:bg-gradient-to-r hover:from-cyan-400/30 hover:to-pink-500/30"
+                  }`}
               >
                 <span className="relative z-10">{item.name}</span>
 
-                {/* Neon Border Glow */}
-                <span className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 blur-lg bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 transition-opacity duration-300"></span>
+                {/* Glowing Border Pulse when active */}
+                {activeSection === item.link.replace("#", "") && (
+                  <span className="absolute inset-0 rounded-xl blur-lg bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 opacity-70 animate-pulse"></span>
+                )}
               </a>
             </li>
           ))}
@@ -58,13 +86,18 @@ export default function Navbar() {
 
       {/* 📱 Mobile Menu List */}
       {open && (
-        <div className="md:hidden bg-black/90 backdrop-blur-lg text-white text-center py-4 space-y-4">
+        <div className="md:hidden bg-black/90 backdrop-blur-lg text-white text-center py-4 space-y-3">
           {menuItems.map((item) => (
             <a
               key={item.name}
               href={item.link}
               onClick={() => setOpen(false)}
-              className="block text-lg px-4 py-2 rounded-lg bg-white/10 border border-white/10 hover:bg-gradient-to-r hover:from-cyan-400/30 hover:to-pink-500/30 hover:shadow-[0_0_15px_rgba(255,0,255,0.3)] transition-all duration-300"
+              className={`block text-base mx-8 py-2 rounded-lg border border-white/10 transition-all duration-300
+                ${
+                  activeSection === item.link.replace("#", "")
+                    ? "bg-gradient-to-r from-cyan-400/40 to-pink-500/40 shadow-[0_0_15px_rgba(255,0,255,0.4)]"
+                    : "bg-white/10 hover:bg-gradient-to-r hover:from-cyan-400/30 hover:to-pink-500/30"
+                }`}
             >
               {item.name}
             </a>
