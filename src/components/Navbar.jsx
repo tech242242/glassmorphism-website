@@ -4,6 +4,7 @@ import RotatingLogo from "./RotatingLogo";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const menuItems = [
     { name: "Home", link: "#home" },
@@ -32,24 +33,38 @@ export default function Navbar() {
           setActiveSection(section.id);
         }
       }
+
+      // 🌠 Scroll progress calculation
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrolled = (scrollTop / docHeight) * 100;
+      setScrollProgress(scrolled);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-lg">
+      {/* 🌠 Scroll Progress Glow Line */}
+      <div
+        className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 shadow-[0_0_12px_rgba(255,0,255,0.8)] transition-all duration-200"
+        style={{ width: `${scrollProgress}%` }}
+      ></div>
+
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* 🔥 Logo Section */}
-        <div className="flex items-center space-x-3 -ml-3 md:-ml-4">
+        <div className="flex items-center space-x-3 -ml-3 md:-ml-4 relative">
           {/* 🌀 Rotating Logo */}
           <div className="w-10 h-10">
             <RotatingLogo />
           </div>
 
-          {/* 📝 StudioPlay Text */}
-          <h1 className="text-2xl font-bold tracking-wide bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(255,0,255,0.4)]">
-            StudioPlay
+          {/* 🌈 StudioPlay Text with Neon Pulse */}
+          <h1 className="text-2xl font-bold tracking-wide bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent relative">
+            <span className="relative z-10">StudioPlay</span>
+            <span className="absolute inset-0 blur-lg bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 opacity-50 animate-pulse-slow"></span>
           </h1>
         </div>
 
@@ -67,7 +82,6 @@ export default function Navbar() {
                   }`}
               >
                 <span className="relative z-10">{item.name}</span>
-
                 {activeSection === item.link.replace("#", "") && (
                   <span className="absolute inset-0 rounded-xl blur-lg bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 opacity-70 animate-pulse"></span>
                 )}
@@ -109,3 +123,21 @@ export default function Navbar() {
     </nav>
   );
 }
+
+/* 🌈 Extra CSS (add to your global styles or tailwind layer)
+-----------------------------------------------------------*/
+<style jsx global>{`
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 3s infinite ease-in-out;
+  }
+`}</style>
