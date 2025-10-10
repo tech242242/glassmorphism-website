@@ -22,6 +22,23 @@ export default function About() {
         About Us
       </motion.h2>
 
+      {/* 💫 Laser Divider Line (Glow + Slide Animation) */}
+      <motion.div
+        initial={{ width: 0, opacity: 0 }}
+        whileInView={{ width: "180px", opacity: 1 }}
+        transition={{
+          duration: 1.2,
+          ease: "easeInOut",
+        }}
+        viewport={{ once: true }}
+        className="relative mx-auto mb-10 h-[3px] 
+                   bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 
+                   rounded-full shadow-[0_0_20px_rgba(255,0,255,0.6)]"
+      >
+        {/* 🔥 Glow pulse on divider */}
+        <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/40 to-transparent blur-[2px]"></div>
+      </motion.div>
+
       {/* 🪩 Animated Paragraph */}
       <motion.p
         initial={{ opacity: 0, y: 40 }}
@@ -47,7 +64,7 @@ export default function About() {
         feel alive ✨.
       </motion.p>
 
-      {/* 💫 Floating Glow Animation */}
+      {/* 🌈 Floating Glow Animation */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.8 }}
