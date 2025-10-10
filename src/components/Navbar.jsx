@@ -15,7 +15,7 @@ export default function Navbar() {
     { name: "Contact", link: "#contact" },
   ];
 
-  // 🔥 Track active section on scroll
+  // 🔥 Active section scroll tracker
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY + 200;
@@ -40,11 +40,14 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* 🔥 Logo Section (Rotating Logo + Text side by side) */}
-        <div className="flex items-center space-x-3">
+        {/* 🔥 Logo Section */}
+        <div className="flex items-center space-x-3 -ml-3 md:-ml-4">
+          {/* 🌀 Rotating Logo */}
           <div className="w-10 h-10">
             <RotatingLogo />
           </div>
+
+          {/* 📝 StudioPlay Text */}
           <h1 className="text-2xl font-bold tracking-wide bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(255,0,255,0.4)]">
             StudioPlay
           </h1>
@@ -65,7 +68,6 @@ export default function Navbar() {
               >
                 <span className="relative z-10">{item.name}</span>
 
-                {/* Glowing Border Pulse when active */}
                 {activeSection === item.link.replace("#", "") && (
                   <span className="absolute inset-0 rounded-xl blur-lg bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 opacity-70 animate-pulse"></span>
                 )}
@@ -84,7 +86,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* 📱 Mobile Menu List */}
+      {/* 📱 Mobile Menu */}
       {open && (
         <div className="md:hidden bg-black/90 backdrop-blur-lg text-white text-center py-4 space-y-3">
           {menuItems.map((item) => (
