@@ -27,10 +27,10 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="py-24 relative text-white overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
+      className="py-24 relative text-white overflow-hidden bg-transparent"
     >
-      {/* ✨ Background Glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent blur-3xl"></div>
+      {/* ✨ Light transparent glow background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent blur-3xl pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto text-center relative z-10 px-4">
         {/* 🧠 Title */}
@@ -38,7 +38,7 @@ export default function Features() {
           className="text-4xl sm:text-5xl font-extrabold mb-14 bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent tracking-tight"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           viewport={{ once: true }}
         >
           Our Powerful Features
@@ -55,24 +55,24 @@ export default function Features() {
               initial={{ opacity: 0, y: 60, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{
-                duration: 0.8,
-                delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1], // iOS-like smooth easing
+                duration: 0.7,
+                delay: index * 0.08,
+                ease: "easeOut", // 🔥 Android friendly smooth transition
               }}
               viewport={{ once: true }}
               whileHover={{
-                scale: 1.03,
-                rotate: 0.5,
-                boxShadow: "0px 0px 30px rgba(255, 255, 255, 0.15)",
+                scale: 1.04,
+                rotate: 0.4,
+                boxShadow: "0px 0px 20px rgba(255, 255, 255, 0.1)",
               }}
-              whileTap={{ scale: 0.97 }}
-              className="group relative p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-2xl shadow-lg transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              whileTap={{ scale: 0.96 }}
+              className="group relative p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-lg transition-all duration-500 ease-out"
             >
-              {/* 🌈 iOS Glow on Hover */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-400/10 via-pink-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 blur-2xl transition duration-700"></div>
+              {/* 🌈 iOS Glow */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-400/10 via-pink-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 blur-2xl transition duration-700 ease-out"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-                <div className="transition-transform duration-700 group-hover:scale-110">
+                <div className="transition-transform duration-700 ease-out group-hover:scale-110">
                   {feature.icon}
                 </div>
                 <h3 className="text-lg font-semibold bg-gradient-to-r from-cyan-300 to-pink-400 bg-clip-text text-transparent">
