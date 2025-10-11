@@ -9,6 +9,7 @@ export default function Navbar() {
     { name: "Home", link: "#home" },
     { name: "Features", link: "#features" },
     { name: "Products", link: "#products" },
+    { name: "Pricing", link: "#pricing" },  // 🆕 ✅ Pricing Section Added
     { name: "About", link: "#about" },
     { name: "Team", link: "#team" },
     { name: "Reviews", link: "#reviews" },
@@ -42,12 +43,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* 🔥 Logo Section */}
         <div className="flex items-center space-x-3 -ml-3 md:-ml-4">
-          {/* 🌀 Rotating Logo */}
           <div className="w-10 h-10">
             <RotatingLogo />
           </div>
-
-          {/* 📝 StudioPlay Text */}
           <h1 className="text-2xl font-bold tracking-wide bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(255,0,255,0.4)]">
             TECH.AI
           </h1>
@@ -67,7 +65,6 @@ export default function Navbar() {
                   }`}
               >
                 <span className="relative z-10">{item.name}</span>
-
                 {activeSection === item.link.replace("#", "") && (
                   <span className="absolute inset-0 rounded-xl blur-lg bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 opacity-70 animate-pulse"></span>
                 )}
