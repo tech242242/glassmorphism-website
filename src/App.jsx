@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import Features from "./components/Features";
 import ProductCarousel from "./components/ProductCarousel";
-import PricingSection from "./components/PricingSection";  // 🆕 Pricing Section
+import PricingSection from "./components/PricingSection";
 import About from "./components/About";
 import TeamSection from "./components/TeamSection";
 import CustomerReviews from "./components/CustomerReviews";
@@ -14,8 +14,11 @@ import ThemeManager from "./components/ThemeManager";
 export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white scroll-smooth bg-black">
-      {/* 🌈 Background */}
-      <ThemeManager />
+      
+      {/* 🌈 THEME BACKGROUND FIX */}
+      <div className="absolute inset-0 -z-10">
+        <ThemeManager />
+      </div>
 
       {/* 🧭 Navbar */}
       <Navbar />
