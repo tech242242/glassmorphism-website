@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 
 const plans = [
   {
@@ -64,14 +65,13 @@ export default function PricingSection() {
               whileHover={{ scale: 1.02 }}
               className="group flex flex-col sm:flex-row items-center gap-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-10 shadow-lg hover:shadow-[0_0_25px_rgba(255,255,255,0.15)] transition-all duration-500 ease-out"
             >
-              {/* 📸 Image Side */}
-              <div className="relative w-full sm:w-1/3 rounded-2xl overflow-hidden shadow-lg">
+              {/* 📸 Image Side — FULL SIZE no crop */}
+              <div className="relative w-full sm:w-1/3 flex justify-center items-center overflow-hidden rounded-2xl shadow-lg bg-black/20 p-2">
                 <motion.img
                   src={plan.img}
                   alt={plan.title}
-                  className="w-full h-52 sm:h-64 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="max-w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                {/* ✨ Glow Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-pink-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 blur-2xl transition duration-700"></div>
               </div>
 
@@ -92,7 +92,7 @@ export default function PricingSection() {
                   {plan.price}
                 </motion.div>
 
-                {/* 🛍️ Buy Now Button */}
+                {/* 🛍️ Buy Now Button with WhatsApp Icon */}
                 <motion.a
                   href={`https://wa.me/92${plan.whatsapp.slice(
                     1
@@ -102,9 +102,10 @@ export default function PricingSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
-                  className="block mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 font-semibold text-white shadow-md hover:shadow-[0_0_20px_rgba(0,255,100,0.3)] transition"
+                  className="flex justify-center sm:justify-start items-center gap-2 mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 font-semibold text-white shadow-md hover:shadow-[0_0_20px_rgba(0,255,100,0.3)] transition-all duration-300 ease-in-out"
                 >
-                  Buy Now 💬
+                  <FaWhatsapp size={22} className="animate-pulse" />
+                  Buy Now
                 </motion.a>
               </div>
             </motion.div>
