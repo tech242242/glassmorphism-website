@@ -9,7 +9,7 @@ const team = [
     whatsapp: "923478936242", // ✅ 92 instead of 0 for WhatsApp links
   },
   {
-    name: "Abdul Ahad",
+    name: "Muhammad Ahad",
     role: "TECH.CONTROL",
     img: "https://i.supaimg.com/fb842d17-21a4-4f9e-8eab-cfc2d297161d.png",
     whatsapp: "923071356242",
@@ -33,7 +33,7 @@ export default function TeamSection() {
         transition={{ duration: 1 }}
         viewport={{ once: true }}
       >
-        Meet Our Creative Team
+        MEET OWNERS
       </motion.h2>
 
       {/* 👥 Team Grid */}
