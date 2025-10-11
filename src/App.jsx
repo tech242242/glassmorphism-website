@@ -9,6 +9,7 @@ import ThemeManager from "./components/ThemeManager";
 import About from "./components/About";
 import TeamSection from "./components/TeamSection";
 import CustomerReviews from "./components/CustomerReviews";
+import PricingSection from "./components/PricingSection";  // 🆕 Added Pricing Section
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
       {/* 🌈 Background */}
       <ThemeManager />
 
-      {/* 🧭 Navbar (RotatingLogo bhi Navbar ke sath hai) */}
+      {/* 🧭 Navbar */}
       <Navbar />
 
       {/* 🏠 Hero Section */}
@@ -55,6 +56,17 @@ export default function App() {
       {/* 📝 About */}
       <section id="about">
         <About />
+      </section>
+
+      {/* 💸 Pricing Section 🆕 */}
+      <section id="pricing">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <PricingSection />
+        </motion.div>
       </section>
 
       {/* 👥 Team */}
