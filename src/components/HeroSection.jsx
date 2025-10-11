@@ -9,7 +9,7 @@ export default function HeroSection() {
         transition={{ duration: 1 }}
         className="text-5xl md:text-7xl font-bold mb-6"
       >
-        Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500">GlassWorld</span>
+        Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500">TECH.AI</span>
       </motion.h1>
 
       <p className="text-gray-300 max-w-xl mb-8">
@@ -42,3 +42,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
