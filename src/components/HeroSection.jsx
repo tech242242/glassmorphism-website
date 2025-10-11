@@ -13,8 +13,7 @@ export default function HeroSection() {
       </motion.h1>
 
       <p className="text-gray-300 max-w-xl mb-8">
-      ✨ This Website Has Everything You Need!
-🌐 All Social Media Services | 🚀 All Pro Version Apps | 📱 Virtual Numbers | 🔫 Free Fire Sensitivity & Panels | 🧠 Best AI Tools | 🎨 Powerful Editing Tools | 🕹 PUBG Hacks.
+      ✨ Welcome to the Ultimate Website! 🌐 Get access to all social media services, pro version apps, virtual numbers, Free Fire sensitivity & panels, PUBG hacks, top AI tools, and powerful editing tools — all in one place. 🚀🔥
       </p>
 
       <div className="flex gap-4">
@@ -43,5 +42,6 @@ export default function HeroSection() {
     </section>
   );
 }
+
 
 
