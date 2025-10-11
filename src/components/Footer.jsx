@@ -3,10 +3,10 @@ import { FaFacebookF, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
 
 export default function Footer() {
   const socialLinks = [
-    { name: "Facebook", icon: <FaFacebookF />, color: "#1877F2", url: "https://www.facebook.com" },
-    { name: "Instagram", icon: <FaInstagram />, color: "#E4405F", url: "https://www.instagram.com" },
-    { name: "WhatsApp", icon: <FaWhatsapp />, color: "#25D366", url: "https://www.whatsapp.com" },
-    { name: "TikTok", icon: <FaTiktok />, color: "#010101", url: "https://www.tiktok.com" },
+    { name: "Facebook", icon: <FaFacebookF />, color: "#1877F2", url: "https://www.facebook.com/share/1BynfYvhog/" },
+    { name: "Instagram", icon: <FaInstagram />, color: "#E4405F", url: "https://www.instagram.com/mr_saqib242" },
+    { name: "WhatsApp", icon: <FaWhatsapp />, color: "#25D366", url: "https://whatsapp.com/channel/0029Vb6bvtX3wtb21mil503V" },
+    { name: "TikTok", icon: <FaTiktok />, color: "#010101", url: "https://www.tiktok.com/@mr_saqib_242?_t=ZS-90SImXww7He&_r=1" },
   ];
 
   return (
@@ -50,7 +50,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <p className="mt-10 text-gray-400 text-sm">
-        © 2025 Studio Pley. All rights reserved.
+        © 2025 TECH.AI All rights reserved.
       </p>
 
       {/* Soft Glow Overlay */}
@@ -58,3 +58,4 @@ export default function Footer() {
     </footer>
   );
 }
+
