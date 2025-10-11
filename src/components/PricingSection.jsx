@@ -5,28 +5,34 @@ const plans = [
     id: 1,
     title: "UK Account 🇬🇧",
     price: "700 Rs",
-    img: "https://i.supaimg.com/560a1a72-77b3-455a-b9a2-1f0715242535.jpg", // 👉 apna UK account image link
+    img: "https://i.supaimg.com/fe058907-22bb-488d-ae15-b3038a93389c.png",
     desc: "Get verified UK account with full access & security.",
+    whatsapp: "03478936242",
   },
   {
     id: 2,
     title: "CapCut Pro ✂️",
     price: "400 Rs",
-    img: "https://i.supaimg.com/810bd6b1-5347-4c46-9a90-5440a189fd07.jpg", // 👉 capcut image link
+    img: "https://i.supaimg.com/42a000ab-df0f-4bd7-92c2-b6307bb1aef5.png",
     desc: "CapCut Premium access — no watermark & exclusive effects.",
+    whatsapp: "03478936242",
   },
   {
     id: 3,
     title: "Free Fire Panel 🔥",
     price: "900 Rs",
-    img: "https://i.supaimg.com/5fbe5d55-cbfd-4eb4-8cf0-02e530d33126.jpg", // 👉 free fire panel image link
+    img: "https://i.supaimg.com/ec5d7050-19b1-4948-bc9c-9bc02f07d5ff.jpg",
     desc: "Full panel access with premium features & extra security.",
+    whatsapp: "03478936242",
   },
 ];
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="py-24 relative text-white overflow-hidden bg-transparent">
+    <section
+      id="pricing"
+      className="py-24 relative text-white overflow-hidden bg-transparent"
+    >
       {/* ✨ Transparent Glow Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent blur-3xl pointer-events-none"></div>
 
@@ -49,7 +55,11 @@ export default function PricingSection() {
               key={plan.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.15,
+                ease: "easeOut",
+              }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
               className="group flex flex-col sm:flex-row items-center gap-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-10 shadow-lg hover:shadow-[0_0_25px_rgba(255,255,255,0.15)] transition-all duration-500 ease-out"
@@ -70,13 +80,32 @@ export default function PricingSection() {
                 <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-300 to-pink-400 bg-clip-text text-transparent">
                   {plan.title}
                 </h3>
-                <p className="text-gray-300 text-sm sm:text-base opacity-90">{plan.desc}</p>
+                <p className="text-gray-300 text-sm sm:text-base opacity-90">
+                  {plan.desc}
+                </p>
+
+                {/* 💰 Price Tag */}
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   className="inline-block mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-pink-500 font-semibold text-white shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition"
                 >
                   {plan.price}
                 </motion.div>
+
+                {/* 🛍️ Buy Now Button */}
+                <motion.a
+                  href={`https://wa.me/92${plan.whatsapp.slice(
+                    1
+                  )}?text=Hi!%20I%20want%20to%20buy%20the%20${encodeURIComponent(
+                    plan.title
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  className="block mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 font-semibold text-white shadow-md hover:shadow-[0_0_20px_rgba(0,255,100,0.3)] transition"
+                >
+                  Buy Now 💬
+                </motion.a>
               </div>
             </motion.div>
           ))}
