@@ -13,7 +13,8 @@ export default function HeroSection() {
       </motion.h1>
 
       <p className="text-gray-300 max-w-xl mb-8">
-        Explore futuristic glassmorphism design with animations, auto-themes, and interactive UI elements.
+      ✨ This Website Has Everything You Need!
+🌐 All Social Media Services | 🚀 All Pro Version Apps | 📱 Virtual Numbers | 🔫 Free Fire Sensitivity & Panels | 🧠 Best AI Tools | 🎨 Powerful Editing Tools | 🕹 PUBG Hacks.
       </p>
 
       <div className="flex gap-4">
@@ -42,4 +43,5 @@ export default function HeroSection() {
     </section>
   );
 }
+
 
