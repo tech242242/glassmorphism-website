@@ -3,22 +3,19 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import Features from "./components/Features";
 import ProductCarousel from "./components/ProductCarousel";
-import PricingSection from "./components/PricingSection";
-import About from "./components/About";
-import TeamSection from "./components/TeamSection";
-import CustomerReviews from "./components/CustomerReviews";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ThemeManager from "./components/ThemeManager";
+import About from "./components/About";
+import TeamSection from "./components/TeamSection";
+import CustomerReviews from "./components/CustomerReviews";
+import PricingSection from "./components/PricingSection";  // 🆕 Added Pricing Section
 
 export default function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white scroll-smooth bg-black">
-      
-      {/* 🌈 THEME BACKGROUND FIX */}
-      <div className="absolute inset-0 -z-10">
-        <ThemeManager />
-      </div>
+    <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white scroll-smooth">
+      {/* 🌈 Background */}
+      <ThemeManager />
 
       {/* 🧭 Navbar */}
       <Navbar />
@@ -56,7 +53,12 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* 💸 Pricing Section */}
+      {/* 📝 About */}
+      <section id="about">
+        <About />
+      </section>
+
+      {/* 💸 Pricing Section 🆕 */}
       <section id="pricing">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -67,52 +69,23 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* 📝 About */}
-      <section id="about">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <About />
-        </motion.div>
-      </section>
-
       {/* 👥 Team */}
       <section id="team">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <TeamSection />
-        </motion.div>
+        <TeamSection />
       </section>
 
       {/* ⭐ Customer Reviews */}
       <section id="reviews">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <CustomerReviews />
-        </motion.div>
+        <CustomerReviews />
       </section>
 
       {/* 💌 Contact */}
       <section id="contact">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <Contact />
-        </motion.div>
+        <Contact />
       </section>
 
       {/* 🔻 Footer */}
       <Footer />
     </div>
   );
-}
+} 
