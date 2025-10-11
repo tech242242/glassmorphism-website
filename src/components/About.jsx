@@ -50,18 +50,18 @@ export default function About() {
       >
         Welcome to{" "}
         <span className="text-pink-500 font-semibold animate-pulse">
-          Studio Play
+          TECH.AI
         </span>{" "}
-        — your creative partner for futuristic UI design. We specialize in{" "}
+        — ✨ This Website Has Everything You Need!
+. Here you find{" "}
         <span className="text-cyan-400 font-semibold">
-          glassmorphism, smooth animations
+          🌐 All Social Media Services | 🚀 All Pro Version Apps | 📱 Virtual Numbers | 🔫 Free Fire Sensitivity & Panels | 🧠 Best AI Tools | 🎨 Powerful Editing Tools | 🕹 PUBG Hack
         </span>{" "}
         and{" "}
         <span className="text-purple-400 font-semibold">
-          responsive web experiences
+          AND all HACKS
         </span>{" "}
-        that bring your digital vision to life. Our mission is to make design
-        feel alive ✨.
+        that bring your digital vision to life. Our MISSION to provide All in ONE ✨.
       </motion.p>
 
       {/* 🌈 Floating Glow Animation */}
