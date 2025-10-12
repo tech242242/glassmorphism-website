@@ -209,6 +209,7 @@ export default function PricingSection() {
                   <li>🔹 Perfect for tech lovers worldwide</li>
                 </ul>
               </div>
+               </div>
           </motion.div>
         </div>
       </div>
