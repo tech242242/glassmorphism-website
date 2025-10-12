@@ -78,6 +78,18 @@ export default function App() {
         </motion.div>
       </section>
 
+        {/* ❓ FAQ Section - Added after About */}
+      <section id="faq">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <FAQSection />
+        </motion.div>
+      </section>
+
+      
       {/* 👥 Team */}
       <section id="team">
         <motion.div
@@ -89,16 +101,6 @@ export default function App() {
         </motion.div>
       </section>
 
-       {/* ❓ FAQ Section - Added after About */}
-      <section id="faq">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <FAQSection />
-        </motion.div>
-      </section>
 
       {/* ⭐ Customer Reviews */}
       <section id="reviews">
@@ -127,4 +129,5 @@ export default function App() {
     </div>
   );
 }
+
 
