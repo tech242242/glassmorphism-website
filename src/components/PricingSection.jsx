@@ -65,7 +65,7 @@ export default function PricingSection() {
               whileHover={{ scale: 1.02 }}
               className="group flex flex-col sm:flex-row items-center gap-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-10 shadow-lg hover:shadow-[0_0_25px_rgba(255,255,255,0.15)] transition-all duration-500 ease-out"
             >
-              {/* 📸 Image Side — FULL SIZE no crop */}
+              {/* 📸 Image Side */}
               <div className="relative w-full sm:w-1/3 flex justify-center items-center overflow-hidden rounded-2xl shadow-lg bg-black/20 p-2">
                 <motion.img
                   src={plan.img}
@@ -84,7 +84,7 @@ export default function PricingSection() {
                   {plan.desc}
                 </p>
 
-                {/* 💰 Price Tag */}
+                {/* 💰 Price */}
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   className="inline-block mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-pink-500 font-semibold text-white shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition"
@@ -92,7 +92,7 @@ export default function PricingSection() {
                   {plan.price}
                 </motion.div>
 
-                {/* 🛍️ Buy Now Button with WhatsApp Icon */}
+                {/* 🛍️ Buy Now */}
                 <motion.a
                   href={`https://wa.me/92${plan.whatsapp.slice(
                     1
@@ -110,6 +110,66 @@ export default function PricingSection() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* 📝 Extra Info Section */}
+        <div className="mt-20 space-y-16">
+          {/* WhatsApp Bot */}
+          <div className="flex flex-col md:flex-row items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(0,255,255,0.2)] transition-all duration-500">
+            <img
+              src="https://i.supaimg.com/5141613d-3251-4cd6-add6-391a49f25d26.jpg"
+              alt="WhatsApp Bot"
+              className="w-full md:w-1/2 rounded-xl shadow-lg"
+            />
+            <div className="md:w-1/2 space-y-3">
+              <h3 className="text-2xl font-bold text-cyan-400">
+                ⚡ WhatsApp Bot – One Click Power!
+              </h3>
+              <p className="text-white/80 leading-relaxed">
+                The bot is designed to enhance group communication by efficiently tagging all participants with just a click.
+                Key features: <strong>Anti-Once</strong>, <strong>Anti-Delete</strong>, <strong>Auto React</strong>, <strong>Auto Reply</strong>, <strong>Song & Drama Download</strong>.
+                💰 250 Rs (was 500 Rs) 📞 03478936242
+              </p>
+            </div>
+          </div>
+
+          {/* TikTok Boost */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(255,0,255,0.2)] transition-all duration-500">
+            <img
+              src="https://i.supaimg.com/aaef307e-489d-4eaa-a818-2c6657e280e6.jpg"
+              alt="TikTok Boost"
+              className="w-full md:w-1/2 rounded-xl shadow-lg"
+            />
+            <div className="md:w-1/2 space-y-3">
+              <h3 className="text-2xl font-bold text-pink-400">
+                🚀 Boost Your TikTok Presence
+              </h3>
+              <p className="text-white/80 leading-relaxed">
+                Get <strong>10,000+ guaranteed views</strong> and unlimited growth on your TikTok content.
+                Perfect for influencers, creators & businesses.
+                📞 03478936242
+              </p>
+            </div>
+          </div>
+
+          {/* Pro Mods */}
+          <div className="flex flex-col md:flex-row items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(0,255,255,0.2)] transition-all duration-500">
+            <img
+              src="https://i.supaimg.com/d7dc11a6-62f8-4f2c-b0fb-e7c65dc8ee0a.png"
+              alt="Pro Mods"
+              className="w-full md:w-1/2 rounded-xl shadow-lg"
+            />
+            <div className="md:w-1/2 space-y-3">
+              <h3 className="text-2xl font-bold text-purple-400">
+                💎 Premium Apps with Tech.AI Pro Mods
+              </h3>
+              <p className="text-white/80 leading-relaxed">
+                Unlock <strong>Capcut Pro</strong>, <strong>Netflix</strong>, <strong>Whatsapp Gold</strong>, 
+                <strong>Spotify</strong>, <strong>Remini Pro</strong> & more!  
+                📞 +92 347 8936242
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
