@@ -1,7 +1,8 @@
 import React from "react";
 
 // ? Yeh accounts folder ke sare files auto import karega (Vite/React me allowed)
-const accountModules = import.meta.glob("../accounts/*.jsx", { eager: true });
+const accountModules = import.meta.glob("./*.jsx", { eager: true });
+
 
 export default function AccountsPage() {
   const accounts = Object.values(accountModules).map((mod) => mod.default);
@@ -25,4 +26,5 @@ export default function AccountsPage() {
       </div>
     </section>
   );
+
 }
