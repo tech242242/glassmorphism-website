@@ -4,8 +4,8 @@ import { FaWhatsapp } from "react-icons/fa";
 const plans = [
   {
     id: 1,
-    title: "UK Account 🇬🇧",
-    price: "700 Rs",
+    title: " TIKTOK UK Account 🇬🇧",
+    price: "1200 Rs",
     img: "https://i.supaimg.com/fe058907-22bb-488d-ae15-b3038a93389c.png",
     desc: "Get verified UK account with full access & security.",
     whatsapp: "03478936242",
