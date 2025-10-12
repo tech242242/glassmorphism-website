@@ -133,7 +133,7 @@ export default function PricingSection() {
               <p className="text-white/80 leading-relaxed">
                 The bot is designed to enhance group communication by efficiently tagging all participants with just a click.  
                 Key features include: <strong>Anti-Once</strong>, <strong>Anti-Delete</strong>, <strong>Auto React</strong>, <strong>Auto Reply</strong>, and <strong>Song & Drama Download</strong>.  
-                💰 250 Rs (was 500 Rs) 📞 03478936242
+                💰 250 Rs (was 500 Rs) 
               </p>
             </div>
           </motion.div>
@@ -158,7 +158,7 @@ export default function PricingSection() {
                 Are you ready to take your TikTok game to the next level?  
                 Our innovative service guarantees <strong>10,000+ views</strong> on your TikTok videos, giving your content the exposure it truly deserves.  
                 Say goodbye to low engagement — hello to massive reach and unstoppable growth.  
-                Perfect for creators, influencers & businesses. 📞 03478936242
+                Perfect for creators, influencers & businesses. 
               </p>
             </div>
           </motion.div>
@@ -209,19 +209,6 @@ export default function PricingSection() {
                   <li>🔹 Perfect for tech lovers worldwide</li>
                 </ul>
               </div>
-
-              <div className="pt-4">
-                <a
-                  href="https://wa.me/923478936242?text=Hi!%20I%20want%20Pro%20Mods%20from%20Tech.AI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-3 rounded-full font-semibold text-white shadow-lg hover:shadow-[0_0_25px_rgba(0,255,150,0.4)] transition duration-300 ease-in-out"
-                >
-                  <FaWhatsapp size={22} className="animate-pulse" />
-                  Get Pro Mods Now
-                </a>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
