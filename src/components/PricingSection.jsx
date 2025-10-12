@@ -146,7 +146,10 @@ export default function PricingSection() {
               </h3>
               <p className="text-white/80 leading-relaxed">
                 Get <strong>10,000+ guaranteed views</strong> and unlimited growth on your TikTok content.
-                Perfect for influencers, creators & businesses.
+                Perfect for influencers, creators & businesses.Are you ready to take your TikTok game to the next level? Look no further!
+Our innovative service guarantees 10,000+ views on your TikTok videos, giving your content the exposure it truly deserves. With our cutting-edge technology, your account will reach a wider audience and experience rapid growth.
+
+Say goodbye to low engagement and stagnant view counts. Say hello to massive reach, viral potential, and unstoppable growth. Whether you're a content creator, influencer, or business owner, our service is specially designed to help you stand out and succeed on TikTok.
                 📞 03478936242
               </p>
             </div>
@@ -165,7 +168,9 @@ export default function PricingSection() {
               </h3>
               <p className="text-white/80 leading-relaxed">
                 Unlock <strong>Capcut Pro</strong>, <strong>Netflix</strong>, <strong>Whatsapp Gold</strong>, 
-                <strong>Spotify</strong>, <strong>Remini Pro</strong> & more!  
+                <strong>Spotify</strong>, <strong>Remini Pro</strong> & more! Tech. AI, a service offered by Mr. Saqib, is now providing pro mods for popular apps. The pro mods include Capcut Pro, Netflix screen, TikTok live, Picsart Pro, Whatsapp Gold, PhotoRoom Pro, Yt Music Pro, Spotify Pro, and Remini Pro.
+These modified apps offer additional features and premium functionality not available in their standard versions. To get access to these pro mods, customers can contact Tech. AI via WhatsApp at ‪+923478936242‬.
+With Tech. AI's pro mods, users can enhance their app experience and enjoy premium features without paying for them. The service is likely to appeal to tech-savvy individuals in Pakistan and beyond." 
                 📞 +92 347 8936242
               </p>
             </div>
