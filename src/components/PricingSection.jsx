@@ -34,11 +34,11 @@ export default function PricingSection() {
       id="pricing"
       className="py-24 relative text-white overflow-hidden bg-transparent"
     >
-      {/* ✨ Transparent Glow Background */}
+      {/* ✨ Transparent Background Glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent blur-3xl pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto relative z-10 px-4">
-        {/* 🧠 Title */}
+        {/* 🧠 Section Title */}
         <motion.h2
           className="text-4xl sm:text-5xl font-extrabold mb-14 bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent text-center"
           initial={{ opacity: 0, y: 40 }}
@@ -112,10 +112,15 @@ export default function PricingSection() {
           ))}
         </div>
 
-        {/* 📝 Extra Info Section */}
+        {/* 📝 Extra Info Sections */}
         <div className="mt-20 space-y-16">
-          {/* WhatsApp Bot */}
-          <div className="flex flex-col md:flex-row items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(0,255,255,0.2)] transition-all duration-500">
+          {/* ⚡ WhatsApp Bot */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col md:flex-row items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(0,255,255,0.2)] transition-all duration-500"
+          >
             <img
               src="https://i.supaimg.com/5141613d-3251-4cd6-add6-391a49f25d26.jpg"
               alt="WhatsApp Bot"
@@ -126,15 +131,20 @@ export default function PricingSection() {
                 ⚡ WhatsApp Bot – One Click Power!
               </h3>
               <p className="text-white/80 leading-relaxed">
-                The bot is designed to enhance group communication by efficiently tagging all participants with just a click.
-                Key features: <strong>Anti-Once</strong>, <strong>Anti-Delete</strong>, <strong>Auto React</strong>, <strong>Auto Reply</strong>, <strong>Song & Drama Download</strong>.
+                The bot is designed to enhance group communication by efficiently tagging all participants with just a click.  
+                Key features include: <strong>Anti-Once</strong>, <strong>Anti-Delete</strong>, <strong>Auto React</strong>, <strong>Auto Reply</strong>, and <strong>Song & Drama Download</strong>.  
                 💰 250 Rs (was 500 Rs) 📞 03478936242
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* TikTok Boost */}
-          <div className="flex flex-col md:flex-row-reverse items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(255,0,255,0.2)] transition-all duration-500">
+          {/* 🚀 TikTok Boost */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col md:flex-row-reverse items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(255,0,255,0.2)] transition-all duration-500"
+          >
             <img
               src="https://i.supaimg.com/aaef307e-489d-4eaa-a818-2c6657e280e6.jpg"
               alt="TikTok Boost"
@@ -145,36 +155,74 @@ export default function PricingSection() {
                 🚀 Boost Your TikTok Presence
               </h3>
               <p className="text-white/80 leading-relaxed">
-                Get <strong>10,000+ guaranteed views</strong> and unlimited growth on your TikTok content.
-                Perfect for influencers, creators & businesses.Are you ready to take your TikTok game to the next level? Look no further!
-Our innovative service guarantees 10,000+ views on your TikTok videos, giving your content the exposure it truly deserves. With our cutting-edge technology, your account will reach a wider audience and experience rapid growth.
-
-Say goodbye to low engagement and stagnant view counts. Say hello to massive reach, viral potential, and unstoppable growth. Whether you're a content creator, influencer, or business owner, our service is specially designed to help you stand out and succeed on TikTok.
-                📞 03478936242
+                Are you ready to take your TikTok game to the next level?  
+                Our innovative service guarantees <strong>10,000+ views</strong> on your TikTok videos, giving your content the exposure it truly deserves.  
+                Say goodbye to low engagement — hello to massive reach and unstoppable growth.  
+                Perfect for creators, influencers & businesses. 📞 03478936242
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Pro Mods */}
-          <div className="flex flex-col md:flex-row items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(0,255,255,0.2)] transition-all duration-500">
+          {/* 🌟 Pro Mods Article Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col md:flex-row items-center gap-8 bg-white/5 rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(0,255,255,0.25)] transition-all duration-500"
+          >
             <img
               src="https://i.supaimg.com/d7dc11a6-62f8-4f2c-b0fb-e7c65dc8ee0a.png"
               alt="Pro Mods"
               className="w-full md:w-1/2 rounded-xl shadow-lg"
             />
-            <div className="md:w-1/2 space-y-3">
-              <h3 className="text-2xl font-bold text-purple-400">
-                💎 Premium Apps with Tech.AI Pro Mods
+            <div className="md:w-1/2 space-y-4 text-white/85">
+              <h3 className="text-3xl font-bold text-purple-400">
+                🌟 Get Access to Premium Apps with Tech.AI’s Pro Mods
               </h3>
-              <p className="text-white/80 leading-relaxed">
-                Unlock <strong>Capcut Pro</strong>, <strong>Netflix</strong>, <strong>Whatsapp Gold</strong>, 
-                <strong>Spotify</strong>, <strong>Remini Pro</strong> & more! Tech. AI, a service offered by Mr. Saqib, is now providing pro mods for popular apps. The pro mods include Capcut Pro, Netflix screen, TikTok live, Picsart Pro, Whatsapp Gold, PhotoRoom Pro, Yt Music Pro, Spotify Pro, and Remini Pro.
-These modified apps offer additional features and premium functionality not available in their standard versions. To get access to these pro mods, customers can contact Tech. AI via WhatsApp at ‪+923478936242‬.
-With Tech. AI's pro mods, users can enhance their app experience and enjoy premium features without paying for them. The service is likely to appeal to tech-savvy individuals in Pakistan and beyond." 
-                📞 +92 347 8936242
+              <p className="leading-relaxed">
+                Looking to unlock premium features without spending extra money?{" "}
+                <strong>Tech.AI</strong>, powered by <strong>Mr. Saqib</strong>,
+                makes it possible! Enjoy premium versions of your favorite apps
+                — completely free and enhanced with advanced features.
               </p>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm sm:text-base">
+                <li>✅ CapCut Pro – Premium editing tools</li>
+                <li>✅ Netflix Screen – Enjoy top shows</li>
+                <li>✅ TikTok Live – Unlock live features</li>
+                <li>✅ PicsArt Pro – Premium filters</li>
+                <li>✅ WhatsApp Gold – Customization options</li>
+                <li>✅ PhotoRoom Pro – Background editor</li>
+                <li>✅ YouTube Music Pro – Ad-free streaming</li>
+                <li>✅ Spotify Pro – Unlimited listening</li>
+                <li>✅ Remini Pro – HD photo enhancement</li>
+              </ul>
+
+              <div className="space-y-2">
+                <h4 className="font-semibold text-lg text-purple-300">
+                  ✨ Why Choose Tech.AI’s Pro Mods?
+                </h4>
+                <ul className="list-disc list-inside text-white/80">
+                  <li>🔹 Unlock premium features for free</li>
+                  <li>🔹 Enhance your app experience</li>
+                  <li>🔹 Easy to use and install</li>
+                  <li>🔹 Perfect for tech lovers worldwide</li>
+                </ul>
+              </div>
+
+              <div className="pt-4">
+                <a
+                  href="https://wa.me/923478936242?text=Hi!%20I%20want%20Pro%20Mods%20from%20Tech.AI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-3 rounded-full font-semibold text-white shadow-lg hover:shadow-[0_0_25px_rgba(0,255,150,0.4)] transition duration-300 ease-in-out"
+                >
+                  <FaWhatsapp size={22} className="animate-pulse" />
+                  Get Pro Mods Now
+                </a>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
