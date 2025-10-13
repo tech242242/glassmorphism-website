@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import ThemeManager from "../components/ThemeManager";  // ✅ ThemeManager import
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 // 📦 Auto import all accounts
@@ -8,30 +9,11 @@ export default function AccountPage() {
   const accounts = Object.values(accountModules).map((mod) => mod.default);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // 🌈 Themes Array
-  const themes = [
-    "from-[#0f172a] to-[#1e293b]",
-    "from-[#1a2a6c] via-[#b21f1f] to-[#fdbb2d]",
-    "from-[#3a1c71] via-[#d76d77] to-[#ffaf7b]",
-    "from-[#232526] to-[#414345]",
-    "from-[#16222A] to-[#3A6073]",
-    "from-[#0f0c29] via-[#302b63] to-[#24243e]"
-  ];
-
-  const [currentTheme, setCurrentTheme] = useState(0);
-
-  // 🪄 Auto change theme every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTheme((prev) => (prev + 1) % themes.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div
-      className={`bg-gradient-to-br ${themes[currentTheme]} min-h-screen text-white transition-all duration-1000`}
-    >
+    <div className="relative min-h-screen text-white">
+      {/* 🪄 BACKGROUND THEME MANAGER */}
+      <ThemeManager />
+
       {/* 🧭 Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-xl shadow-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
@@ -128,7 +110,7 @@ export default function AccountPage() {
       {/* 🛍 Accounts Section */}
       <section
         id="buy"
-        className="pt-24 pb-10 max-w-7xl mx-auto px-5 transition-all duration-700"
+        className="pt-24 pb-10 max-w-7xl mx-auto px-5 relative z-10"
       >
         <h2 className="text-3xl font-bold mb-10 text-center bg-gradient-to-r from-cyan-400 to-pink-500 text-transparent bg-clip-text">
           🔥 Free Fire Accounts for Sale
@@ -145,7 +127,7 @@ export default function AccountPage() {
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-400 col-span-full">
+            <p className="text-center text-gray-300 col-span-full">
               No accounts available right now.
             </p>
           )}
@@ -155,7 +137,7 @@ export default function AccountPage() {
       {/* 📜 Policies Section */}
       <section
         id="policies"
-        className="max-w-5xl mx-auto mt-20 bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-xl text-gray-300 transition-all duration-700"
+        className="max-w-5xl mx-auto mt-20 bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-xl text-gray-300 relative z-10"
       >
         <h2 className="text-2xl font-bold text-cyan-400 mb-4">📜 Our Policies</h2>
         <ul className="list-disc list-inside space-y-2 text-sm leading-relaxed">
@@ -170,7 +152,7 @@ export default function AccountPage() {
       {/* 📞 Contact Section */}
       <section
         id="contact"
-        className="max-w-5xl mx-auto mt-20 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-center transition-all duration-700 mb-10"
+        className="max-w-5xl mx-auto mt-20 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-center relative z-10 mb-10"
       >
         <h2 className="text-2xl font-bold text-cyan-400 mb-4">📞 Contact Us</h2>
         <p className="text-gray-300 mb-4">
