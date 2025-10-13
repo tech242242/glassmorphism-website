@@ -1,6 +1,6 @@
 // src/pages/AccountPage.jsx
 import React, { useState } from "react";
-import ThemeManager from "../components/ThemeManager"; // 🌈 Background theme
+import ThemeManager from "../components/ThemeManager";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 const accountModules = import.meta.glob("../accounts/*.jsx", { eager: true });
@@ -24,7 +24,6 @@ export default function AccountPage() {
             Legendary FF IDs
           </h1>
 
-          {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-8 text-sm font-semibold text-white">
             <li>
               <ScrollLink
@@ -61,7 +60,6 @@ export default function AccountPage() {
             </li>
           </ul>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -70,7 +68,6 @@ export default function AccountPage() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden bg-white/10 backdrop-blur-xl border-t border-white/10 text-center py-3 space-y-3">
             <ScrollLink
@@ -118,13 +115,8 @@ export default function AccountPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {accounts.length > 0 ? (
             accounts.map((AccountComponent, index) => (
-              <div
-                key={index}
-                className="hover:scale-[1.02] transition-transform duration-300 
-                           bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-2"
-              >
-                <AccountComponent />
-              </div>
+              // 🪄 ❌ Removed extra card div — Account components handle their own design
+              <AccountComponent key={index} />
             ))
           ) : (
             <p className="text-center text-gray-300 col-span-full">
