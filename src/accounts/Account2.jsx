@@ -14,7 +14,6 @@ export default function Account18() {
   const [current, setCurrent] = useState(0);
   const [showDetail, setShowDetail] = useState(false);
 
-  // keyboard support
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "ArrowRight") nextSlide();
@@ -22,7 +21,6 @@ export default function Account18() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current]);
 
   const nextSlide = () =>
@@ -35,39 +33,32 @@ export default function Account18() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-white/5 border border-white/10 backdrop-blur-xl p-6 rounded-2xl shadow-[0_0_30px_rgba(0,255,255,0.12)] max-w-5xl mx-auto mt-10 hover:scale-[1.02] transition"
+      className="bg-white/5 border border-white/10 backdrop-blur-xl p-4 rounded-2xl shadow-[0_0_30px_rgba(0,255,255,0.12)] max-w-5xl mx-auto mt-10 hover:scale-[1.02] transition"
     >
-      {/* Image Slider (maintain horizontal ratio) */}
-      <div className="relative overflow-hidden rounded-xl">
-        <div
-          className="w-full"
+      {/* Image Slider - no extra blank space */}
+      <div className="relative rounded-xl overflow-hidden bg-black flex justify-center items-center">
+        <img
+          src={images[current]}
+          alt={`FF Account ${current + 1}`}
+          className="w-full h-auto object-contain transition-all duration-500"
           style={{
-            height: "540px",
-            maxHeight: "60vh",
+            aspectRatio: "1230 / 540", // 👈 maintain perfect landscape shape
             display: "block",
-            position: "relative",
           }}
-        >
-          <img
-            src={images[current]}
-            alt={`FF Account ${current + 1}`}
-            className="w-full h-full object-cover rounded-xl transition-all duration-500"
-            // keep horizontal ratio visually by fixed height; images are cover to fit
-          />
-        </div>
+        />
 
         {/* Arrows */}
         <button
           onClick={prevSlide}
           aria-label="previous"
-          className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/70 z-20"
+          className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/80 z-20"
         >
           <FaArrowLeft />
         </button>
         <button
           onClick={nextSlide}
           aria-label="next"
-          className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/70 z-20"
+          className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/80 z-20"
         >
           <FaArrowRight />
         </button>
@@ -81,13 +72,12 @@ export default function Account18() {
               className={`w-3 h-3 rounded-full transition-all ${
                 current === index ? "bg-cyan-400 scale-125" : "bg-white/40"
               }`}
-              aria-label={`go to slide ${index + 1}`}
             />
           ))}
         </div>
       </div>
 
-      {/* Basic Info */}
+      {/* Account Info */}
       <div className="mt-6">
         <h2 className="text-3xl font-extrabold bg-gradient-to-r from-cyan-400 to-pink-500 text-transparent bg-clip-text">
           💥 Legendary Free Fire Account #18 🔥
@@ -98,7 +88,9 @@ export default function Account18() {
         </p>
 
         <div className="mt-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
-          <span className="text-pink-400 font-semibold text-lg">💰 Price: DM for Best Offer</span>
+          <span className="text-pink-400 font-semibold text-lg">
+            💰 Price: DM for Best Offer
+          </span>
 
           <div className="flex gap-3">
             <a
@@ -120,66 +112,78 @@ export default function Account18() {
         </div>
       </div>
 
-      {/* Full Details (expandable) */}
+      {/* Full Details — fully expanded, no scroll */}
       {showDetail && (
-        <div className="mt-6 bg-white/5 p-6 rounded-xl border border-white/10 space-y-5 text-gray-300 text-sm leading-relaxed">
+        <div className="mt-6 bg-white/5 p-6 rounded-xl border border-white/10 text-gray-300 text-sm leading-relaxed space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-cyan-400 mb-2">🔫 GUN SKINS &amp; EVO GUNS (LEVEL 4+)</h3>
+            <h3 className="text-xl font-bold text-cyan-400 mb-2">
+              🔫 GUN SKINS & EVO GUNS (LEVEL 4+)
+            </h3>
             <ul className="list-disc list-inside space-y-1">
-              <li>🌙 <strong>Total EVO Guns – 9</strong> (All Level 4+ with Tokens)</li>
-              <li>🌈 <strong>Rare UMP – Art of War</strong></li>
+              <li>🌙 Total EVO Guns – 9 (All Level 4+ with Tokens)</li>
+              <li>🌈 Rare UMP – Art of War</li>
               <li>🌟 Top Groza – Incubator Skin</li>
               <li>👀 Top AUG – Incubator Skin</li>
               <li>🌟 Top Yellow M1887 – Incubator Skin</li>
               <li>🕸 Top AWM – Incubator Skin</li>
-              <li>🌗 Top P90 ++ Rate of Fire Skin</li>
-              <li>✨ Top MAC10 Skin</li>
-              <li>💫 Top AK47 ++ Damage Skin</li>
-              <li>💫 Top M1014 Skin</li>
-              <li>🌟 Top SVD Skin</li>
-              <li>⚡ Top Trogon Skin</li>
+              <li>🌗 P90 ++ Rate of Fire Skin</li>
+              <li>✨ MAC10 Skin</li>
+              <li>💫 AK47 ++ Damage Skin</li>
+              <li>💫 M1014 Skin</li>
+              <li>🌟 SVD Skin</li>
+              <li>⚡ Trogon Skin</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold text-cyan-400 mb-2">👕 BUNDLES &amp; OUTFITS</h3>
+            <h3 className="text-xl font-bold text-cyan-400 mb-2">
+              👕 BUNDLES & OUTFITS
+            </h3>
             <ul className="list-disc list-inside space-y-1">
-              <li>🧢 <strong>Level Almost 64</strong></li>
-              <li>💎 <strong>250+ Top Rare Vault Items</strong></li>
-              <li>🌚 <strong>Top 2 Joker Bundles</strong></li>
-              <li>🌙 <strong>Top 3 Dino Bundles</strong></li>
-              <li>🌟 <strong>Top 2 Money Heist Bundles</strong></li>
-              <li>☄ <strong>Black Pony Bundle</strong></li>
-              <li>📨 <strong>Top 2 Legendary Bundles</strong> (Booyah Day & Rampage)</li>
-              <li>👕 <strong>Top Black Shirt</strong></li>
-              <li>👖 <strong>Top Pants Collection</strong> — Red Anglic, Blue Anglic, Jazz Pants</li>
-              <li>💧 <strong>Top Hair Sets</strong></li>
-              <li>⚡ <strong>Top Body Wear</strong></li>
+              <li>🧢 Level 64</li>
+              <li>💎 250+ Rare Vault Items</li>
+              <li>🌚 2 Joker Bundles</li>
+              <li>🌙 3 Dino Bundles</li>
+              <li>🌟 2 Money Heist Bundles</li>
+              <li>☄ Black Pony Bundle</li>
+              <li>📨 2 Legendary Bundles (Booyah Day & Rampage)</li>
+              <li>👕 Black Shirt</li>
+              <li>👖 Anglic Pants (Red, Blue, Jazz)</li>
+              <li>💧 Top Hair Sets</li>
+              <li>⚡ Body Wear</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold text-cyan-400 mb-2">🕺 RARE EMOTES</h3>
+            <h3 className="text-xl font-bold text-cyan-400 mb-2">
+              🕺 RARE EMOTES
+            </h3>
             <ul className="list-disc list-inside space-y-1">
               <li>🌙 Top 2 Entry Emotes</li>
-              <li>💧 50+ Top Rare Emotes</li>
+              <li>💧 50+ Rare Emotes</li>
               <li>🔪 Group Emote</li>
               <li>🌹 Rose Emote</li>
               <li>⚡ Justice Emote</li>
-              <li>🌈 And Many More Rare Emotes…</li>
+              <li>🌈 And Many More…</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold text-cyan-400 mb-2">🌟 EXTRA FEATURES</h3>
+            <h3 className="text-xl font-bold text-cyan-400 mb-2">
+              🌟 EXTRA FEATURES
+            </h3>
             <ul className="list-disc list-inside space-y-1">
-              <li>☄ <strong>1 Look Changer</strong></li>
-              <li>👑 Many Top Incubator Items & Exclusive Shirts</li>
+              <li>☄ 1 Look Changer</li>
+              <li>👑 Exclusive Shirts & Incubator Items</li>
             </ul>
           </div>
 
-          <p className="font-semibold text-lg text-pink-400">📢 Serious buyers only — no time pass.</p>
-          <p className="italic text-gray-400">#FreeFireAccount #EvoGuns #RareBundles #TopVault #FreeFireSale</p>
+          <p className="font-semibold text-lg text-pink-400">
+            📢 Serious buyers only — no time pass.
+          </p>
+          <p className="italic text-gray-400">
+            #FreeFireAccount #EvoGuns #RareBundles #TopVault #FreeFireSale
+          </p>
         </div>
       )}
     </motion.div>
