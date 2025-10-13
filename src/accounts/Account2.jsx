@@ -14,27 +14,22 @@ export default function Account18() {
   const [current, setCurrent] = useState(0);
   const [showDetail, setShowDetail] = useState(false);
 
-  const nextSlide = () => {
-    setCurrent(current === images.length - 1 ? 0 : current + 1);
-  };
-
-  const prevSlide = () => {
-    setCurrent(current === 0 ? images.length - 1 : current - 1);
-  };
+  const nextSlide = () => setCurrent(current === images.length - 1 ? 0 : current + 1);
+  const prevSlide = () => setCurrent(current === 0 ? images.length - 1 : current - 1);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-white/5 border border-white/10 backdrop-blur-xl p-4 rounded-2xl relative shadow-[0_0_25px_rgba(0,255,255,0.3)] hover:scale-[1.02] transition"
+      className="bg-white/5 border border-white/10 backdrop-blur-xl p-6 rounded-2xl relative shadow-[0_0_25px_rgba(0,255,255,0.3)] hover:scale-[1.02] transition max-w-3xl mx-auto"
     >
       {/* 🔸 Image Slider */}
       <div className="relative overflow-hidden rounded-xl">
         <img
           src={images[current]}
           alt={`FF Account ${current + 1}`}
-          className="w-full h-64 object-cover rounded-xl transition"
+          className="w-full h-[380px] object-cover rounded-xl transition"
         />
         <button
           onClick={prevSlide}
@@ -48,17 +43,30 @@ export default function Account18() {
         >
           <FaArrowRight />
         </button>
+
+        {/* 🟣 Dot Indicators */}
+        <div className="absolute bottom-3 w-full flex justify-center space-x-2">
+          {images.map((_, index) => (
+            <div
+              key={index}
+              onClick={() => setCurrent(index)}
+              className={`w-3 h-3 rounded-full cursor-pointer transition ${
+                current === index ? "bg-cyan-400 scale-110" : "bg-white/40"
+              }`}
+            ></div>
+          ))}
+        </div>
       </div>
 
       {/* 🧾 Account Basic Info */}
-      <div className="mt-4">
+      <div className="mt-5">
         <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500">
           Legendary Free Fire Account #18
         </h3>
         <p className="text-gray-300 text-sm mt-2">
           🌟 Top Rare Skins | 9 Evo Guns | 250+ Vault Items | Rare Emotes | Joker & Dino Bundles
         </p>
-        <div className="mt-3 flex justify-between items-center">
+        <div className="mt-4 flex justify-between items-center">
           <span className="text-pink-400 font-semibold text-lg">💸 Price: DM for Offer</span>
           <a
             href="https://wa.me/923478936242?text=Hi%20I%20want%20to%20buy%20Account%2018"
@@ -72,7 +80,7 @@ export default function Account18() {
       </div>
 
       {/* 🔽 View More Button */}
-      <div className="text-center mt-4">
+      <div className="text-center mt-5">
         <button
           onClick={() => setShowDetail(!showDetail)}
           className="px-5 py-2 bg-gradient-to-r from-blue-500 to-pink-500 rounded-lg shadow-lg hover:shadow-[0_0_25px_rgba(0,255,255,0.5)] font-semibold text-sm"
@@ -81,38 +89,46 @@ export default function Account18() {
         </button>
       </div>
 
-      {/* 📜 Detail Section */}
+      {/* 📜 Full Detail Section (No Scroll) */}
       {showDetail && (
-        <div className="mt-5 max-h-72 overflow-y-auto p-3 bg-white/5 rounded-xl border border-white/10">
-          <h4 className="font-bold text-lg mb-2 text-cyan-400">🔫 GUN SKINS & EVO GUNS</h4>
-          <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
-            <li>🌙 Total EVO Guns – 9 (All Level 4+ with Tokens)</li>
-            <li>🌈 Rare UMP – Art of War</li>
-            <li>🌟 Top Groza – Incubator Skin</li>
-            <li>🌟 Top M1887 – Incubator Skin</li>
-            <li>✨ MAC10 | P90 | AK47 | SVD | AWM | Trogon</li>
-          </ul>
+        <div className="mt-6 space-y-5 bg-white/5 p-4 rounded-xl border border-white/10">
+          <div>
+            <h4 className="font-bold text-lg mb-2 text-cyan-400">🔫 GUN SKINS & EVO GUNS</h4>
+            <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+              <li>🌙 Total EVO Guns – 9 (All Level 4+ with Tokens)</li>
+              <li>🌈 Rare UMP – Art of War</li>
+              <li>🌟 Top Groza – Incubator Skin</li>
+              <li>🌟 Top M1887 – Incubator Skin</li>
+              <li>✨ MAC10 | P90 | AK47 | SVD | AWM | Trogon</li>
+            </ul>
+          </div>
 
-          <h4 className="font-bold text-lg mt-4 mb-2 text-cyan-400">👕 Bundles & Vault</h4>
-          <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
-            <li>🧢 Level Almost 64</li>
-            <li>💎 250+ Rare Vault Items</li>
-            <li>🌚 Joker, Dino, Money Heist Bundles</li>
-            <li>✨ Black Pony Bundle, Legendary Bundles</li>
-            <li>👕 Black Shirt + 3 Angelic Pants</li>
-          </ul>
+          <div>
+            <h4 className="font-bold text-lg mb-2 text-cyan-400">👕 Bundles & Vault</h4>
+            <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+              <li>🧢 Level Almost 64</li>
+              <li>💎 250+ Rare Vault Items</li>
+              <li>🌚 Joker, Dino, Money Heist Bundles</li>
+              <li>✨ Black Pony Bundle, Legendary Bundles</li>
+              <li>👕 Black Shirt + 3 Angelic Pants</li>
+            </ul>
+          </div>
 
-          <h4 className="font-bold text-lg mt-4 mb-2 text-cyan-400">🕺 Emotes</h4>
-          <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
-            <li>50+ Rare Emotes</li>
-            <li>🌙 Entry Emotes, Group Emote, Rose Emote</li>
-          </ul>
+          <div>
+            <h4 className="font-bold text-lg mb-2 text-cyan-400">🕺 Emotes</h4>
+            <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+              <li>50+ Rare Emotes</li>
+              <li>🌙 Entry Emotes, Group Emote, Rose Emote</li>
+            </ul>
+          </div>
 
-          <h4 className="font-bold text-lg mt-4 mb-2 text-cyan-400">✨ Extras</h4>
-          <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
-            <li>☄ 1 Look Changer</li>
-            <li>👑 Exclusive Shirts & Incubator Items</li>
-          </ul>
+          <div>
+            <h4 className="font-bold text-lg mb-2 text-cyan-400">✨ Extras</h4>
+            <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+              <li>☄ 1 Look Changer</li>
+              <li>👑 Exclusive Shirts & Incubator Items</li>
+            </ul>
+          </div>
         </div>
       )}
     </motion.div>
