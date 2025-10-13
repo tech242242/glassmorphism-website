@@ -27,15 +27,15 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="py-24 relative text-white overflow-hidden bg-transparent"
+      className="py-16 sm:py-20 relative text-white overflow-hidden bg-transparent"
     >
-      {/* ✨ Light transparent glow background */}
+      {/* ✨ Soft Light Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent blur-3xl pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto text-center relative z-10 px-4">
         {/* 🧠 Title */}
         <motion.h2
-          className="text-4xl sm:text-5xl font-extrabold mb-14 bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent tracking-tight"
+          className="text-4xl sm:text-5xl font-extrabold mb-12 sm:mb-16 bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent tracking-tight"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
@@ -45,7 +45,7 @@ export default function Features() {
         </motion.h2>
 
         {/* ⚡ Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-5 sm:gap-8">
           {features.map((feature, index) => (
             <motion.a
               key={feature.id}
@@ -57,28 +57,28 @@ export default function Features() {
               transition={{
                 duration: 0.7,
                 delay: index * 0.08,
-                ease: "easeOut", // 🔥 Android friendly smooth transition
+                ease: "easeOut",
               }}
               viewport={{ once: true }}
               whileHover={{
-                scale: 1.04,
-                rotate: 0.4,
-                boxShadow: "0px 0px 20px rgba(255, 255, 255, 0.1)",
+                scale: 1.08,
+                rotate: 0.6,
+                boxShadow: "0px 0px 25px rgba(255, 255, 255, 0.15)",
               }}
-              whileTap={{ scale: 0.96 }}
-              className="group relative p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-lg transition-all duration-500 ease-out"
+              whileTap={{ scale: 0.95 }}
+              className="group relative p-5 sm:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-lg transition-all duration-500 ease-out cursor-pointer"
             >
-              {/* 🌈 iOS Glow */}
+              {/* 🌈 Hover Glow */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-400/10 via-pink-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 blur-2xl transition duration-700 ease-out"></div>
 
-              <div className="relative z-10 flex flex-col items-center text-center space-y-4">
+              <div className="relative z-10 flex flex-col items-center text-center space-y-3">
                 <div className="transition-transform duration-700 ease-out group-hover:scale-110">
                   {feature.icon}
                 </div>
                 <h3 className="text-lg font-semibold bg-gradient-to-r from-cyan-300 to-pink-400 bg-clip-text text-transparent">
                   {feature.title}
                 </h3>
-                <p className="text-gray-300 text-sm sm:text-base opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="text-gray-300 text-xs sm:text-sm opacity-80 group-hover:opacity-100 transition-opacity duration-500">
                   Tap to explore
                 </p>
               </div>
