@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 // 📦 Auto import all accounts
@@ -8,8 +8,30 @@ export default function AccountPage() {
   const accounts = Object.values(accountModules).map((mod) => mod.default);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // 🌈 Themes Array
+  const themes = [
+    "from-[#0f172a] to-[#1e293b]",
+    "from-[#1a2a6c] via-[#b21f1f] to-[#fdbb2d]",
+    "from-[#3a1c71] via-[#d76d77] to-[#ffaf7b]",
+    "from-[#232526] to-[#414345]",
+    "from-[#16222A] to-[#3A6073]",
+    "from-[#0f0c29] via-[#302b63] to-[#24243e]"
+  ];
+
+  const [currentTheme, setCurrentTheme] = useState(0);
+
+  // 🪄 Auto change theme every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTheme((prev) => (prev + 1) % themes.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="bg-gradient-to-br from-[#0f172a] to-[#1e293b] min-h-screen text-white">
+    <div
+      className={`bg-gradient-to-br ${themes[currentTheme]} min-h-screen text-white transition-all duration-1000`}
+    >
       {/* 🧭 Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-xl shadow-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
