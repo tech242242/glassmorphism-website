@@ -13,7 +13,6 @@ export default function AccountPage() {
       {/* 🧭 Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-xl shadow-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
-          {/* 🌟 Logo */}
           <h1
             onClick={() => scroll.scrollToTop({ duration: 700, smooth: true })}
             className="text-xl font-bold text-cyan-400 cursor-pointer"
@@ -26,7 +25,7 @@ export default function AccountPage() {
             <li>
               <ScrollLink
                 to="buy"
-                smooth={true}
+                smooth
                 duration={600}
                 offset={-80}
                 className="cursor-pointer hover:text-cyan-400 transition"
@@ -37,7 +36,7 @@ export default function AccountPage() {
             <li>
               <ScrollLink
                 to="policies"
-                smooth={true}
+                smooth
                 duration={600}
                 offset={-80}
                 className="cursor-pointer hover:text-cyan-400 transition"
@@ -48,7 +47,7 @@ export default function AccountPage() {
             <li>
               <ScrollLink
                 to="contact"
-                smooth={true}
+                smooth
                 duration={600}
                 offset={-80}
                 className="cursor-pointer hover:text-cyan-400 transition"
@@ -72,7 +71,7 @@ export default function AccountPage() {
           <div className="md:hidden bg-white/10 backdrop-blur-xl border-t border-white/10 text-center py-3 space-y-3">
             <ScrollLink
               to="buy"
-              smooth={true}
+              smooth
               duration={600}
               offset={-80}
               onClick={() => setMenuOpen(false)}
@@ -82,7 +81,7 @@ export default function AccountPage() {
             </ScrollLink>
             <ScrollLink
               to="policies"
-              smooth={true}
+              smooth
               duration={600}
               offset={-80}
               onClick={() => setMenuOpen(false)}
@@ -92,7 +91,7 @@ export default function AccountPage() {
             </ScrollLink>
             <ScrollLink
               to="contact"
-              smooth={true}
+              smooth
               duration={600}
               offset={-80}
               onClick={() => setMenuOpen(false)}
@@ -117,7 +116,8 @@ export default function AccountPage() {
             accounts.map((AccountComponent, index) => (
               <div
                 key={index}
-                className="hover:scale-[1.02] transition-transform duration-300"
+                className="hover:scale-[1.02] transition-transform duration-300 
+                           bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-2"
               >
                 <AccountComponent />
               </div>
