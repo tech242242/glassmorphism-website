@@ -14,7 +14,6 @@ export default function Account18() {
   const [current, setCurrent] = useState(0);
   const [showDetail, setShowDetail] = useState(false);
 
-  // keyboard support
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "ArrowRight") nextSlide();
@@ -34,24 +33,19 @@ export default function Account18() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-white/5 border border-white/10 backdrop-blur-xl p-6 rounded-2xl shadow-[0_0_30px_rgba(0,255,255,0.12)] max-w-5xl mx-auto mt-10 hover:scale-[1.02] transition"
+      className="bg-white/5 border border-white/10 backdrop-blur-xl p-4 rounded-2xl shadow-[0_0_30px_rgba(0,255,255,0.12)] max-w-5xl mx-auto mt-10 hover:scale-[1.02] transition"
     >
-      {/* Image Slider - Landscape */}
-      <div className="relative overflow-hidden rounded-xl bg-black flex justify-center items-center">
-        <div
-          className="w-full flex justify-center items-center"
+      {/* Image Slider - no extra blank space */}
+      <div className="relative rounded-xl overflow-hidden bg-black flex justify-center items-center">
+        <img
+          src={images[current]}
+          alt={`FF Account ${current + 1}`}
+          className="w-full h-auto object-contain transition-all duration-500"
           style={{
-            height: "400px", // 👈 landscape style height
-            maxHeight: "60vh",
-            position: "relative",
+            aspectRatio: "1230 / 540", // 👈 maintain perfect landscape shape
+            display: "block",
           }}
-        >
-          <img
-            src={images[current]}
-            alt={`FF Account ${current + 1}`}
-            className="w-full h-full object-contain transition-all duration-500"
-          />
-        </div>
+        />
 
         {/* Arrows */}
         <button
@@ -78,7 +72,6 @@ export default function Account18() {
               className={`w-3 h-3 rounded-full transition-all ${
                 current === index ? "bg-cyan-400 scale-125" : "bg-white/40"
               }`}
-              aria-label={`go to slide ${index + 1}`}
             />
           ))}
         </div>
@@ -119,16 +112,15 @@ export default function Account18() {
         </div>
       </div>
 
-      {/* Full Details */}
+      {/* Full Details — fully expanded, no scroll */}
       {showDetail && (
-        <div className="mt-6 bg-white/5 p-6 rounded-xl border border-white/10 space-y-5 text-gray-300 text-sm leading-relaxed max-h-[400px] overflow-y-auto">
-          {/* Scrollable Detail List */}
+        <div className="mt-6 bg-white/5 p-6 rounded-xl border border-white/10 text-gray-300 text-sm leading-relaxed space-y-6">
           <div>
             <h3 className="text-xl font-bold text-cyan-400 mb-2">
               🔫 GUN SKINS & EVO GUNS (LEVEL 4+)
             </h3>
             <ul className="list-disc list-inside space-y-1">
-              <li>🌙 <strong>Total EVO Guns – 9</strong> (All Level 4+ with Tokens)</li>
+              <li>🌙 Total EVO Guns – 9 (All Level 4+ with Tokens)</li>
               <li>🌈 Rare UMP – Art of War</li>
               <li>🌟 Top Groza – Incubator Skin</li>
               <li>👀 Top AUG – Incubator Skin</li>
@@ -137,19 +129,61 @@ export default function Account18() {
               <li>🌗 P90 ++ Rate of Fire Skin</li>
               <li>✨ MAC10 Skin</li>
               <li>💫 AK47 ++ Damage Skin</li>
+              <li>💫 M1014 Skin</li>
+              <li>🌟 SVD Skin</li>
+              <li>⚡ Trogon Skin</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold text-cyan-400 mb-2">👕 BUNDLES & OUTFITS</h3>
+            <h3 className="text-xl font-bold text-cyan-400 mb-2">
+              👕 BUNDLES & OUTFITS
+            </h3>
             <ul className="list-disc list-inside space-y-1">
               <li>🧢 Level 64</li>
               <li>💎 250+ Rare Vault Items</li>
               <li>🌚 2 Joker Bundles</li>
               <li>🌙 3 Dino Bundles</li>
               <li>🌟 2 Money Heist Bundles</li>
+              <li>☄ Black Pony Bundle</li>
+              <li>📨 2 Legendary Bundles (Booyah Day & Rampage)</li>
+              <li>👕 Black Shirt</li>
+              <li>👖 Anglic Pants (Red, Blue, Jazz)</li>
+              <li>💧 Top Hair Sets</li>
+              <li>⚡ Body Wear</li>
             </ul>
           </div>
+
+          <div>
+            <h3 className="text-xl font-bold text-cyan-400 mb-2">
+              🕺 RARE EMOTES
+            </h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>🌙 Top 2 Entry Emotes</li>
+              <li>💧 50+ Rare Emotes</li>
+              <li>🔪 Group Emote</li>
+              <li>🌹 Rose Emote</li>
+              <li>⚡ Justice Emote</li>
+              <li>🌈 And Many More…</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold text-cyan-400 mb-2">
+              🌟 EXTRA FEATURES
+            </h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>☄ 1 Look Changer</li>
+              <li>👑 Exclusive Shirts & Incubator Items</li>
+            </ul>
+          </div>
+
+          <p className="font-semibold text-lg text-pink-400">
+            📢 Serious buyers only — no time pass.
+          </p>
+          <p className="italic text-gray-400">
+            #FreeFireAccount #EvoGuns #RareBundles #TopVault #FreeFireSale
+          </p>
         </div>
       )}
     </motion.div>
