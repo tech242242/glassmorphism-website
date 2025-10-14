@@ -96,19 +96,10 @@ export default function App() {
 
           {/* 🟩 ID Buy Page */}
           <Route path="/buy" element={<AccountsPage />} />
-
-          {/* 🟥 ID Sell Page */}
-          <Route path="/sell" element={<div className="p-10 text-center text-2xl">🚧 ID Sell Page Coming Soon...</div>} />
-
-          {/* 🟦 Panel Page */}
-          <Route path="/panel" element={<div className="p-10 text-center text-2xl">🧰 Panel Page Coming Soon...</div>} />
-
-          {/* 🟨 Sensitivity Page */}
-          <Route path="/sensitivity" element={<div className="p-10 text-center text-2xl">🎯 Sensitivity Page Coming Soon...</div>} />
-        </Routes>
-
+           </Routes>
         <Footer />
       </div>
     </Router>
   );
 }
+
