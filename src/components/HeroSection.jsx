@@ -44,13 +44,13 @@ export default function HeroSection() {
           </ScrollLink>
         </motion.div>
 
-        {/* 🆓 Free Fire IDs Button */}
+        {/* 🆕 Free Fire Page Button */}
         <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
           <Link
-            to="/accounts"
-            className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg shadow-lg hover:shadow-[0_0_25px_rgba(0,255,100,0.5)] font-semibold transition-all"
+            to="/freefire"
+            className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg shadow-lg hover:shadow-[0_0_25px_rgba(255,100,0,0.6)] font-semibold transition-all"
           >
-            🆓 Free Fire IDs
+            🔥 Free Fire
           </Link>
         </motion.div>
       </div>
