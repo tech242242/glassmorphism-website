@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import "./FreeFirePage.css";
 import { Link as ScrollLink } from "react-scroll";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
