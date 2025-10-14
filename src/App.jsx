@@ -30,7 +30,6 @@ export default function App() {
         <Navbar />
 
         <Routes>
-          {/* 🏠 Default Home Page */}
           <Route
             path="/"
             element={
@@ -92,19 +91,19 @@ export default function App() {
             }
           />
 
-          {/* 🆕 🟡 Free Fire Home Page */}
+          {/* 🆕 Free Fire Home Page */}
           <Route path="/freefire" element={<FreeFirePage />} />
 
-          {/* 🟩 ID Buy Page (Accounts) */}
+          {/* 🟩 ID Buy Page */}
           <Route path="/buy" element={<AccountsPage />} />
 
-          {/* 🟥 ID Sell Page (future) */}
+          {/* 🟥 ID Sell Page */}
           <Route path="/sell" element={<div className="p-10 text-center text-2xl">🚧 ID Sell Page Coming Soon...</div>} />
 
-          {/* 🟦 Panel Page (future) */}
+          {/* 🟦 Panel Page */}
           <Route path="/panel" element={<div className="p-10 text-center text-2xl">🧰 Panel Page Coming Soon...</div>} />
 
-          {/* 🟨 Sensitivity Page (future) */}
+          {/* 🟨 Sensitivity Page */}
           <Route path="/sensitivity" element={<div className="p-10 text-center text-2xl">🎯 Sensitivity Page Coming Soon...</div>} />
         </Routes>
 
