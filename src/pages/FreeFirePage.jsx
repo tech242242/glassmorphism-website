@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";  // ✅ FIXED: Import added
 import "./FreeFirePage.css";
 
 import freefireBg from "/freefire-background.jpg";
@@ -17,8 +18,10 @@ export default function FreeFirePage() {
         backgroundPosition: "center",
       }}
     >
+      {/* 🔸 Overlay for blur and dark background */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
 
+      {/* 🧭 Logo Animation */}
       <motion.img
         src={freefireLogo}
         alt="Free Fire Logo"
@@ -28,6 +31,7 @@ export default function FreeFirePage() {
         className="absolute top-10 left-6 w-48 sm:w-64"
       />
 
+      {/* 🧍 Character Animation */}
       <motion.img
         src={freefireCharacter}
         alt="Free Fire Character"
@@ -37,6 +41,7 @@ export default function FreeFirePage() {
         className="absolute bottom-0 right-0 w-[300px] sm:w-[400px] lg:w-[500px]"
       />
 
+      {/* ✨ Text Animation */}
       <div className="relative z-10 px-4 max-w-2xl">
         <TypeAnimation
           sequence={[
@@ -53,6 +58,7 @@ export default function FreeFirePage() {
           className="text-3xl sm:text-5xl font-bold mb-8 drop-shadow-lg"
         />
 
+        {/* 🟠 Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-6">
           {[
             { label: "ID Buy", to: "/buy", gradient: "from-blue-500 to-purple-600" },
