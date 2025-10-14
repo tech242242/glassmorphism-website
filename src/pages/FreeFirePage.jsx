@@ -1,114 +1,82 @@
 import { motion } from "framer-motion";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
+import "./FreeFirePage.css";
 
-import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import Features from "./components/Features";
-import ProductCarousel from "./components/ProductCarousel";
-import PricingSection from "./components/PricingSection";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import ThemeManager from "./components/ThemeManager";
-import About from "./components/About";
-import TeamSection from "./components/TeamSection";
-import CustomerReviews from "./components/CustomerReviews";
-import FAQSection from "./components/FAQSection";
-import AccountsPage from "./accounts/AccountsPage";
+import freefireBg from "/freefire-background.jpg";
+import freefireLogo from "/freefire-logo.png";
+import freefireCharacter from "/freefire-character.png";
 
-// 🆕 Free Fire Page
-import FreeFirePage from "./pages/FreeFirePage";
-
-export default function App() {
+export default function FreeFirePage() {
   return (
-    <Router>
-      <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white scroll-smooth">
-        {/* 🎨 Background Theme Manager */}
-        <div className="absolute inset-0 -z-10">
-          <ThemeManager />
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center text-white overflow-hidden"
+      style={{
+        backgroundImage: `url(${freefireBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+      <motion.img
+        src={freefireLogo}
+        alt="Free Fire Logo"
+        initial={{ x: -200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="absolute top-10 left-6 w-48 sm:w-64"
+      />
+
+      <motion.img
+        src={freefireCharacter}
+        alt="Free Fire Character"
+        initial={{ x: 200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="absolute bottom-0 right-0 w-[300px] sm:w-[400px] lg:w-[500px]"
+      />
+
+      <div className="relative z-10 px-4 max-w-2xl">
+        <TypeAnimation
+          sequence={[
+            "🔥 Welcome to Free Fire Hub",
+            2000,
+            "🚀 Buy & Sell IDs Instantly",
+            2000,
+            "🎯 Fast. Safe. Trusted.",
+            2000,
+          ]}
+          wrapper="h1"
+          cursor={true}
+          repeat={Infinity}
+          className="text-3xl sm:text-5xl font-bold mb-8 drop-shadow-lg"
+        />
+
+        <div className="flex flex-wrap justify-center gap-4 mt-6">
+          {[
+            { label: "ID Buy", to: "/buy", gradient: "from-blue-500 to-purple-600" },
+            { label: "ID Sell", to: "/sell", gradient: "from-green-500 to-emerald-600" },
+            { label: "Panels", to: "/panel", gradient: "from-pink-500 to-rose-500" },
+            { label: "Sensitivity", to: "/sensitivity", gradient: "from-yellow-500 to-orange-600" },
+          ].map((btn, i) => (
+            <motion.div
+              key={i}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5, delay: i * 0.2 }}
+            >
+              <Link
+                to={btn.to}
+                className={`px-6 py-3 rounded-lg bg-gradient-to-r ${btn.gradient} shadow-lg hover:scale-110 transition-transform font-semibold`}
+              >
+                {btn.label}
+              </Link>
+            </motion.div>
+          ))}
         </div>
-
-        <Navbar />
-
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <section id="home">
-                  <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-                    <HeroSection />
-                  </motion.div>
-                </section>
-
-                <section id="features">
-                  <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 40 }} transition={{ duration: 1 }}>
-                    <Features />
-                  </motion.div>
-                </section>
-
-                <section id="products">
-                  <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 40 }} transition={{ duration: 1 }}>
-                    <ProductCarousel />
-                  </motion.div>
-                </section>
-
-                <section id="pricing">
-                  <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 40 }} transition={{ duration: 1 }}>
-                    <PricingSection />
-                  </motion.div>
-                </section>
-
-                <section id="about">
-                  <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 40 }} transition={{ duration: 1 }}>
-                    <About />
-                  </motion.div>
-                </section>
-
-                <section id="faq">
-                  <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 40 }} transition={{ duration: 1 }}>
-                    <FAQSection />
-                  </motion.div>
-                </section>
-
-                <section id="team">
-                  <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 40 }} transition={{ duration: 1 }}>
-                    <TeamSection />
-                  </motion.div>
-                </section>
-
-                <section id="reviews">
-                  <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 40 }} transition={{ duration: 1 }}>
-                    <CustomerReviews />
-                  </motion.div>
-                </section>
-
-                <section id="contact">
-                  <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 40 }} transition={{ duration: 1 }}>
-                    <Contact />
-                  </motion.div>
-                </section>
-              </>
-            }
-          />
-
-          {/* 🆕 Free Fire Home Page */}
-          <Route path="/freefire" element={<FreeFirePage />} />
-
-          {/* 🟩 ID Buy Page */}
-          <Route path="/buy" element={<AccountsPage />} />
-
-          {/* 🟥 ID Sell Page */}
-          <Route path="/sell" element={<div className="p-10 text-center text-2xl">🚧 ID Sell Page Coming Soon...</div>} />
-
-          {/* 🟦 Panel Page */}
-          <Route path="/panel" element={<div className="p-10 text-center text-2xl">🧰 Panel Page Coming Soon...</div>} />
-
-          {/* 🟨 Sensitivity Page */}
-          <Route path="/sensitivity" element={<div className="p-10 text-center text-2xl">🎯 Sensitivity Page Coming Soon...</div>} />
-        </Routes>
-
-        <Footer />
       </div>
-    </Router>
+    </section>
   );
 }
