@@ -5,7 +5,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['react-type-animation'], 
     },
   },
   resolve: {
@@ -14,3 +13,4 @@ export default defineConfig({
     },
   },
 })
+
