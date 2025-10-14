@@ -13,12 +13,16 @@ import About from "./components/About";
 import TeamSection from "./components/TeamSection";
 import CustomerReviews from "./components/CustomerReviews";
 import FAQSection from "./components/FAQSection";
-import AccountsPage from "./accounts/AccountsPage"; // 🆕
+import AccountsPage from "./accounts/AccountsPage";
+
+// 🆕 Free Fire Page
+import FreeFirePage from "./pages/FreeFirePage";
 
 export default function App() {
   return (
     <Router>
       <div className="min-h-screen overflow-x-hidden relative font-[Poppins] text-white scroll-smooth">
+        {/* 🎨 Background Theme Manager */}
         <div className="absolute inset-0 -z-10">
           <ThemeManager />
         </div>
@@ -26,7 +30,7 @@ export default function App() {
         <Navbar />
 
         <Routes>
-          {/* 🏠 Home Page */}
+          {/* 🏠 Default Home Page */}
           <Route
             path="/"
             element={
@@ -88,8 +92,20 @@ export default function App() {
             }
           />
 
-          {/* 🛍️ Accounts Page */}
-          <Route path="/accounts" element={<AccountsPage />} />
+          {/* 🆕 🟡 Free Fire Home Page */}
+          <Route path="/freefire" element={<FreeFirePage />} />
+
+          {/* 🟩 ID Buy Page (Accounts) */}
+          <Route path="/buy" element={<AccountsPage />} />
+
+          {/* 🟥 ID Sell Page (future) */}
+          <Route path="/sell" element={<div className="p-10 text-center text-2xl">🚧 ID Sell Page Coming Soon...</div>} />
+
+          {/* 🟦 Panel Page (future) */}
+          <Route path="/panel" element={<div className="p-10 text-center text-2xl">🧰 Panel Page Coming Soon...</div>} />
+
+          {/* 🟨 Sensitivity Page (future) */}
+          <Route path="/sensitivity" element={<div className="p-10 text-center text-2xl">🎯 Sensitivity Page Coming Soon...</div>} />
         </Routes>
 
         <Footer />
